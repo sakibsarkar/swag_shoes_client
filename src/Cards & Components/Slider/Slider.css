@@ -1,0 +1,157 @@
+.sliderBOX {
+    position: relative;
+}
+
+
+
+#firstBannerContent {
+    position: absolute;
+    right: 25px;
+    top: 40%;
+    width: 500px !important;
+    color: #4c4029;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    cursor: auto;
+}
+
+
+#firstBannerContent h1 {
+    font-size: 46px;
+    text-align: left;
+}
+
+#firstBannerContent p {
+    text-align: left;
+}
+
+
+#firstBannerContent button {
+    background: #4c4029;
+    border: none;
+    color: white;
+    padding: 11px 8px;
+    font-family: sans-serif;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#firstBannerContent button:hover {
+    background: white;
+    color: #4c4029;
+}
+
+
+
+
+
+#secondBannerContent {
+    width: fit-content !important;
+    position: absolute;
+    left: 35%;
+    top: 46px;
+
+}
+
+
+#secondBannerContent h1 {
+    color: #3e5856;
+}
+
+#secondBannerContent button {
+    border: none;
+    background-color: #efd3b1;
+    font-size: 20px;
+    padding: 9px 34px;
+    margin: 20px 0 0 0;
+    transition: 0.3s;
+}
+
+#secondBannerContent button:hover {
+    background: white;
+    color: #0b0b0b;
+}
+
+
+
+#thirdBannerContent {
+    width: fit-content !important;
+    position: absolute;
+    left: 90px;
+    bottom: 38%;
+    color: #a1cd18;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+#thirdBannerContent h1 {
+    font-size: 50px;
+}
+
+#thirdBannerContent button {
+    border: none;
+    background: #a1cd18;
+    color: #010101;
+    padding: 7px 33px;
+    font-size: 19px;
+    transition: 0.3s;
+}
+
+
+
+#thirdBannerContent button:hover {
+    background-color: white;
+    color: #000000;
+}
+
+
+
+
+/* ------ slider style ---------- ⚠️dont touch ⚠️----- */
+
+.carousel.carousel-slider .control-arrow {
+    background: black;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    border-radius: 50%;
+}
+
+.control-dots {
+    display: none !important;
+}
+
+
+.slide {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+}
+
+
+.selected div {
+    width: 100% !important;
+}
+
+.previous div {
+    width: 100% !important;
+}
+
+.slide div img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+
+}
+
+.carousel .thumbs-wrapper {
+    display: none !important;
+}

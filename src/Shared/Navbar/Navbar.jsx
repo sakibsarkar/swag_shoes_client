@@ -1,9 +1,18 @@
 import "./Navbar.css";
+import { useContext, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { IoCart } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
+import { Context } from "../../Hooks & Functions/AauthContext";
 
 const Navbar = () => {
+    const { user, logout } = useContext(Context)
+    const [showDropDown, setShowDropDown] = useState(false)
+    const defaultUser = "https://i.pinimg.com/1200x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
+
+    const handleLogout = () => {
+        logout()
+    }
     return (
         <div className="navWrapper">
             <nav>
@@ -19,11 +28,34 @@ const Navbar = () => {
                 </ul>
 
 
-                <Link to={"/login"} className="createAccount">
-                    <FaUser />
-                    <p>|</p>
-                    <p>Login</p>
-                </Link >
+                {
+                    user ?
+                        <div className="userItems">
+                            <div className="userImg" onClick={() => setShowDropDown(!showDropDown)}>
+                                <img src={user?.photoUrl ? user.photoUrl : defaultUser} alt="" />
+                            </div>
+                            <div className="cart">
+                                <IoCart />
+                            </div>
+
+                            {
+                                showDropDown ?
+                                    <div className="userDropDown">
+                                        <Link>Profile</Link>
+                                        <Link>Order History</Link>
+                                        <button onClick={handleLogout}>Log Out</button>
+                                    </div>
+                                    : ""
+                            }
+
+                        </div>
+                        :
+                        <Link to={"/login"} className="createAccount">
+                            <FaUser />
+                            <p>|</p>
+                            <p>Login</p>
+                        </Link >
+                }
 
             </nav>
         </div>
