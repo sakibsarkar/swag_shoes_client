@@ -1,8 +1,16 @@
-nav {
+.navWrapper {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    background: #f4f4f4b3;
+}
+
+.navWrapper nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #f4f4f4b3;
+
     width: 1456px;
     margin: auto;
     padding: 0 22px;
@@ -12,20 +20,20 @@ nav {
     width: 190px;
 }
 
-nav ul {
+.navWrapper nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
 }
 
-nav ul li .navLinks {
+.navWrapper nav ul li .navLinks {
     color: black;
     font-size: 18px;
     padding: 3px 11px;
 }
 
-nav ul li .active {
+.navWrapper nav ul li .active {
     background-color: black;
     color: white;
 }

@@ -1,0 +1,29 @@
+.pageBannerCon {
+    width: 100vw;
+    height: 300px;
+    background-image: url("https://i.ibb.co/x6FTC0m/footwear-banner-1440x480.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 -115px;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.pageBannerCon h2 {
+    color: white;
+    font-size: 50px;
+}
+
+.pageRoute {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    gap: 5px;
+    font-size: 20px;
+}

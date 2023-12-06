@@ -1,0 +1,60 @@
+.socialAuthWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    width: 100%;
+}
+
+
+.authentications {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.socialBox {
+    background: #f3f3f3;
+    font-size: 32px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.socialAuthWrapper h1 {
+    position: relative;
+    font-size: 18px;
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+}
+
+
+.socialAuthWrapper h1::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 32%;
+    height: 2px;
+    background-color: rgb(208, 208, 208);
+    top: 8px;
+}
+
+.socialAuthWrapper h1::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 32%;
+    height: 2px;
+    background-color: rgb(208, 208, 208);
+    top: 8px;
+}

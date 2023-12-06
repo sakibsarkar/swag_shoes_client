@@ -1,0 +1,77 @@
+.loginCon {
+    padding: 80px 0 0 0;
+}
+
+
+.loginFormBox {
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+    margin: 32px auto;
+    padding: 0 15px;
+}
+
+
+.loginImg {
+    width: 400px;
+    height: 500px;
+    overflow: hidden;
+}
+
+.loginImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.loginForm {
+
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+
+
+}
+
+
+.loginForm .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    width: 100% !important;
+}
+
+
+.loginForm button {
+    width: 100% !important;
+    box-shadow: none !important;
+}
+
+
+.loginAction {
+    display: flex;
+    width: 100%;
+    font-size: 14px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 14px;
+    margin: 34px 0 0 0;
+}
+
+.loginAction p:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.loginAction a {
+    color: black;
+}
+
+.loginAction a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
