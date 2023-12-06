@@ -1,0 +1,48 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4f4f4b3;
+    width: 1456px;
+    margin: auto;
+    padding: 0 22px;
+}
+
+.logo img {
+    width: 190px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+nav ul li .navLinks {
+    color: black;
+    font-size: 18px;
+    padding: 3px 11px;
+}
+
+nav ul li .active {
+    background-color: black;
+    color: white;
+}
+
+
+.createAccount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid black;
+    color: black;
+    padding: 6px 8px;
+    transition: 0.3s;
+}
+
+.createAccount:hover {
+    box-shadow: inset 100px 0 black;
+    color: white;
+}
