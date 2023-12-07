@@ -116,7 +116,7 @@
 
 /* ------ slider style ---------- ⚠️dont touch ⚠️----- */
 
-.carousel.carousel-slider .control-arrow {
+.bannerSlider .carousel.carousel-slider .control-arrow {
     background: black;
     width: 50px;
     height: 50px;
@@ -124,12 +124,12 @@
     border-radius: 50%;
 }
 
-.control-dots {
+.bannerSlider .control-dots {
     display: none !important;
 }
 
 
-.slide {
+.bannerSlider .slide {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -137,21 +137,21 @@
 }
 
 
-.selected div {
+.bannerSlider .selected div {
     width: 100% !important;
 }
 
-.previous div {
+.bannerSlider .previous div {
     width: 100% !important;
 }
 
-.slide div img {
+.bannerSlider .slide div img {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
 
 }
 
-.carousel .thumbs-wrapper {
+.bannerSlider .carousel .thumbs-wrapper {
     display: none !important;
 }

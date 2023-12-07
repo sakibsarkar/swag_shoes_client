@@ -1,0 +1,68 @@
+.swipperCardCon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1300px;
+    margin: 80px auto;
+}
+
+
+.categoryCards {
+    display: grid;
+    grid-template-columns: repeat(2, 375px);
+    gap: 20px 10px;
+}
+
+
+.categoryCard {
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+    position: relative;
+    width: 375px;
+    height: 240px;
+    transition: 0.3s;
+    border: 1px solid rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+
+.categoryCard:hover {
+    border: 1px solid black;
+}
+
+.categoryCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.categoryCard h1 {
+    position: absolute;
+    width: 100%;
+    top: 37px;
+    font-size: 22px;
+    color: #353535;
+    left: 20px;
+}
+
+
+
+
+/* ---------- */
+.swipperCard {
+    width: 500px;
+}
+
+
+.swipperIMG {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+/* ----------- */
+
+
+.swipperCard .swiper-slide-visible {
+    height: 503px;
+}
