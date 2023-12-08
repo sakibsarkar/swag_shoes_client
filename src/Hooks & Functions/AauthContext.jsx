@@ -1,6 +1,8 @@
 import auth from "../Firebase/Firebase-config";
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { removeItem } from "localforage";
 import { createContext, useEffect, useState } from "react";
+import { deleteItemFromLS } from "./locaStorage";
 
 export const Context = createContext(null)
 const AuthContext = ({ children }) => {
@@ -40,6 +42,7 @@ const AuthContext = ({ children }) => {
     // logOut
     const logout = () => {
         setLoading(true)
+        deleteItemFromLS("token")
         return signOut(auth)
     }
 

@@ -2,19 +2,25 @@ import "./Login.css";
 import PageBanner from "../../Shared/PageBanner/PageBanner";
 import SocialAuth from "../../Shared/SocialAuth/SocialAuth";
 import Swal from "sweetalert2";
+import UseAxios from "../../Hooks & Functions/Axios/UseAxios";
 import toast, { ToastBar } from "react-hot-toast";
 import { Button, TextField } from "@mui/material";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { ImSpinner9 } from "react-icons/im";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Context } from "../../Hooks & Functions/AauthContext";
+import { addItemToLS } from "../../Hooks & Functions/locaStorage";
 
 const Login = () => {
     const location = useLocation()
+    const [loginLoading, setLoginLoading] = useState(false)
+    const axios = UseAxios()
+
 
     const navigate = useNavigate()
     const addrss = location?.state ? location.state : "/"
 
-    const { login, user } = useContext(Context)
+    const { login, user, logout } = useContext(Context)
     const handleLogin = async (e) => {
         e.preventDefault()
 
@@ -24,10 +30,17 @@ const Login = () => {
         await login(email, password)
 
         try {
-            await login(email, password)
 
-            // ------- to do -------
-            // get token from the serverr
+            setLoginLoading(true)
+
+            // get token from the server
+            const { data: token } = await axios.post("/user/token", { email: email })
+            addItemToLS("token", token)
+
+            // authentication
+            const { user } = await login(email, password)
+
+            setLoginLoading(false)
             Swal.fire({
                 title: "Success fully Logged in",
                 text: "",
@@ -37,7 +50,14 @@ const Login = () => {
         }
 
         catch (err) {
+            logout()
+            Swal.fire({
+                title: "something wrong.please check your email or password",
+                text: "",
+                icon: "error"
+            });
             console.log(err);
+            setLoginLoading(false)
         }
     }
     return (
@@ -49,7 +69,16 @@ const Login = () => {
                     <h1>Welcome Back</h1>
                     <TextField name="email" type="email" required id="standard-basic" label="Email" variant="standard" />
                     <TextField name="password" type="password" required id="standard-basic" label="Password" variant="standard" />
-                    <Button type="submit" variant="contained">Login</Button>
+                    <Button type="submit" variant="contained">
+
+                        {
+                            loginLoading ?
+                                <ImSpinner9 className="rotate" />
+                                :
+                                " Login"
+                        }
+
+                    </Button>
                     <SocialAuth mt={15} />
                     <div className="loginAction">
                         <p>Forgot Password?</p>

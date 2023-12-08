@@ -1,21 +1,28 @@
 import "./Signup.css";
 import PageBanner from "../../Shared/PageBanner/PageBanner";
 import Swal from "sweetalert2";
+import UseAxios from "../../Hooks & Functions/Axios/UseAxios";
 import { TextField } from "@mui/material";
 import { updateProfile } from "firebase/auth";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { ImSpinner9 } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../Hooks & Functions/AauthContext";
+import { addItemToLS } from "../../Hooks & Functions/locaStorage";
 import { uploadPhoto } from "../../Hooks & Functions/uploadPhoto";
 
 const Signup = () => {
 
+    const [signupLoading, setSignupLoading] = useState(false)
 
-    const { signup } = useContext(Context)
+    const { signup, user, logout, waitForUser, setWaitForUser } = useContext(Context)
+
 
     const navigate = useNavigate()
+
     const address = "/"
 
+    const axios = UseAxios()
     const handleSignup = async (e) => {
         e.preventDefault()
         const form = e.target
@@ -31,6 +38,9 @@ const Signup = () => {
         const capital = /[A-Z]/;
         const special = /[\W_]/
 
+        if (user) {
+            return;
+        }
         if (!capital.test(password)) {
             Swal.fire({
                 icon: "error",
@@ -59,6 +69,7 @@ const Signup = () => {
         }
 
         try {
+            setSignupLoading(true)
             const { data } = await uploadPhoto(photo)
             const url = data?.display_url
 
@@ -69,13 +80,29 @@ const Signup = () => {
                 displayName: `${firstName} ${lastName}`
             })
 
+
+            const { data: token } = await axios.post("/user/token", { email: email })
+
+
+            // to refetch the user data to get the updated info
+            setWaitForUser(!waitForUser)
+
+            // set token to Local storage
+            addItemToLS("token", token)
+
             navigate(address)
 
 
         }
 
         catch (err) {
-            console.log(err);
+            await logout()
+            Swal.fire({
+                icon: "error",
+                title: "Something went wrong",
+                text: "please try again",
+            });
+            setSignupLoading(false)
         }
 
     }
@@ -104,7 +131,15 @@ const Signup = () => {
 
                     <TextField name="confirm" type="password" required id="standard-basic" label="Confirm Password" variant="standard" />
 
-                    <button type="submit">signUp</button>
+                    <button type="submit">
+                        {
+                            signupLoading ?
+                                <ImSpinner9 className="rotate" />
+                                :
+                                "signUp"
+                        }
+
+                    </button>
 
                 </form>
             </div>
