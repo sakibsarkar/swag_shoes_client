@@ -49,7 +49,7 @@ const Login = () => {
                     <h1>Welcome Back</h1>
                     <TextField name="email" type="email" required id="standard-basic" label="Email" variant="standard" />
                     <TextField name="password" type="password" required id="standard-basic" label="Password" variant="standard" />
-                    <Button type="submit" variant="contained">Contained</Button>
+                    <Button type="submit" variant="contained">Login</Button>
                     <SocialAuth mt={15} />
                     <div className="loginAction">
                         <p>Forgot Password?</p>
