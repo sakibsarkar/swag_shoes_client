@@ -1,0 +1,63 @@
+.shoe_card {
+    width: 350px;
+    height: 317px;
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+    border: 1px solid transparent;
+    transition: 0.3s;
+    cursor: pointer;
+
+}
+
+.shoe_card:hover {
+    border: 1px solid black;
+}
+
+.shoe_card:hover .productImg {
+    height: calc(100% + 10px);
+    width: calc(100% + 30px);
+}
+
+
+.shoeDetail {
+    padding: 10px 9px;
+}
+
+.shoeDetail h2 {
+    color: black;
+}
+
+.shoeDetail p {
+    color: #7e7e7e;
+}
+
+.ratingStars {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    padding: 15px 9px;
+}
+
+.ratingStars p {
+    color: #7e7e7e;
+}
+
+.ratingStars>.css-ryrseu-MuiRating-root {
+    font-size: 18px;
+
+}
+
+.shoeImg {
+    width: 350px;
+    height: 200px;
+    overflow: hidden;
+}
+
+
+/* shoeImg img */
+.productImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.2s;
+}

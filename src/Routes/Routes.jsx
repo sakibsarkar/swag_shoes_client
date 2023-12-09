@@ -1,3 +1,4 @@
+import AllShoes from "../Pages/AllShoes/AllShoes";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
@@ -12,6 +13,10 @@ export const route = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />
+            },
+            {
+                path: "/allShoes",
+                element: <AllShoes />
             },
             {
                 path: "/login",

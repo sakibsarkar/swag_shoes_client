@@ -1,13 +1,14 @@
 import "./PageBanner.css";
 
-const PageBanner = ({ sectionName, routeArr }) => {
+const PageBanner = ({ sectionName, routeArr = [] }) => {
     return (
         <div className="pageBannerCon">
             <h2>{sectionName}</h2>
             <div className="pageRoute">
-                <p>{routeArr[0]}</p>
-                <p>{routeArr[1]}</p>
-                <p>{routeArr[2]}</p>
+
+                {
+                    routeArr.map((item, index) => <p key={index}>{item}</p>)
+                }
             </div>
         </div>
     );
