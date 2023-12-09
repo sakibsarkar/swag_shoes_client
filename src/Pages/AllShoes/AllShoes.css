@@ -13,7 +13,7 @@
     width: fit-content;
     margin: auto;
     gap: 20px;
-    min-height: 997px;
+    min-height: 300px;
 }
 
 .filter select {

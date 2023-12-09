@@ -1,19 +1,25 @@
 import "./ShoeDetails.css";
+import Swal from "sweetalert2";
 import UseAxios from "../../Hooks & Functions/Axios/UseAxios";
+import { Rating } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FiPlus } from "react-icons/fi";
 import { FiMinus } from "react-icons/fi";
+import { MdShoppingCart } from "react-icons/md";
 import { useParams } from "react-router-dom";
+import { Context } from "../../Hooks & Functions/AauthContext";
 import { getItemFromLS } from "../../Hooks & Functions/locaStorage";
 
 const ShoeDetail = () => {
     const { id } = useParams()
     const token = getItemFromLS("token")
     const axios = UseAxios()
-
     const [selectedSize, setSelectedSize] = useState(0)
     const [quantity, setQuantity] = useState(1)
+    const [totalPrice, setTotalPrice] = useState(0)
+
+    const { user } = useContext(Context)
 
 
     const { data = {} } = useQuery({
@@ -21,28 +27,142 @@ const ShoeDetail = () => {
         queryFn: async () => {
             const { data: myShoe } = await axios.get(`/single/shoe?id=${id}&&token=${token}`)
             setSelectedSize(myShoe.sizes[0])
+            setTotalPrice(myShoe.price)
             return myShoe
         }
     })
     const { _id, name, price, sizes, coupon, discountPercentage, category, newArrival, image } = data
 
 
+    // ---todo : add ratings in every data on DB
+    const rating = (Math.random() * 5).toFixed(1)
+
+
+
+    // total price
+    const handleTotalPrice = (quantity) => {
+        setTotalPrice((quantity * price).toFixed(2))
+    }
 
 
     const handlePlusQuantity = () => {
         if (quantity > 9) {
+            setQuantity(10)
+            handleTotalPrice(10)
             return
         }
 
         setQuantity(quantity + 1)
+        handleTotalPrice(quantity + 1)
+
     }
+
     const handleMinusQuantity = () => {
         if (quantity === 1) {
+            setQuantity(1)
+            handleTotalPrice(1)
             return
         }
 
         setQuantity(quantity - 1)
+        handleTotalPrice(quantity - 1)
     }
+
+
+    // quantity change by input feild
+    const handleAddQuantityManually = (e) => {
+        const value = parseInt(e.target.value)
+
+        if (value < 1) {
+            setQuantity(1)
+            handleTotalPrice(1)
+            return
+        }
+        if (!value) {
+            setQuantity(1)
+            handleTotalPrice(1)
+            return
+        }
+        if (value > 10) {
+
+            setQuantity(10)
+            handleTotalPrice(10)
+            return
+        }
+
+        setQuantity(value)
+        handleTotalPrice(value)
+    }
+
+
+
+    // add to cart
+    const handleAddtoCart = async () => {
+        if (!selectedSize || !totalPrice || !quantity) {
+            return
+        }
+
+
+        if (!user) {
+
+            // give a alert for log in
+            return
+        }
+
+
+
+        // cart data
+        const cartObject = {
+            user_name: user?.displayName,
+            user_email: user?.email,
+            totalPrice: totalPrice,
+            quantity: quantity,
+            size: selectedSize,
+            product_id: _id,
+            product_img: image,
+            product_name: name
+        }
+
+
+        // check is the item is already in cart or not
+        const { data: myOldCart } = await axios.get(`/user/check/cart?token=${token}&&id=${_id}&&size=${selectedSize}`)
+
+
+
+
+        if (myOldCart?.isExist) {
+            // updating the old card price with new price
+            const newPrice = parseInt(myOldCart.totalPrice + totalPrice)
+
+            // increasing the quantity with old quantity
+            const newQuantity = parseInt(myOldCart.quantity + quantity)
+
+            // updating the cart data
+ 
+            const { data: cartUpdate } = await axios.put(`/update/cart?token=${token}`, {
+                quantity: newQuantity,
+                totalPrice: newPrice,
+                cart_id: myOldCart.cart_id
+            })
+
+            Swal.fire({
+                title: "Successfully added to your cart",
+                text: "",
+                icon: "seccess"
+            });
+
+            return
+        }
+
+
+        await axios.post(`/user/cart/add?token=${token}`, cartObject)
+        Swal.fire({
+            title: "Successfully added to your cart",
+            text: "",
+            icon: "seccess"
+        });
+    }
+
 
     return (
         <div className="shoe_detail_container">
@@ -57,6 +177,7 @@ const ShoeDetail = () => {
                 <div className="shoeIntro">
                     <h2>{name}</h2>
                     <p>${price}</p>
+                    <Rating readOnly={true} value={rating} name="half-rating-read" defaultValue={2.5} precision={0.5} />
                 </div>
 
                 <div className="product_varients">
@@ -79,9 +200,9 @@ const ShoeDetail = () => {
 
                         <p>Select quantity</p>
                         <div className="quantityBox">
-                            <button onClick={handleMinusQuantity}><FiMinus /></button>
-                            <input type="number" value={quantity} />
-                            <button onClick={handlePlusQuantity}><FiPlus /></button>
+                            <button disabled={quantity === 1 ? true : false} onClick={handleMinusQuantity}><FiMinus /></button>
+                            <input type="number" value={quantity} onChange={handleAddQuantityManually} />
+                            <button disabled={quantity === 10 ? true : false} onClick={handlePlusQuantity}><FiPlus /></button>
                         </div>
 
                     </div>
@@ -90,7 +211,11 @@ const ShoeDetail = () => {
 
                 <div className="processButon">
                     <button className="butNow">Buy Now</button>
-                    <button className="addCart">Add to cart</button>
+                    <button className="addCart" onClick={handleAddtoCart}> <MdShoppingCart />Add to cart</button>
+                </div>
+
+                <div className="total">
+                    <h2>Total : ${totalPrice}</h2>
                 </div>
             </div>
 
