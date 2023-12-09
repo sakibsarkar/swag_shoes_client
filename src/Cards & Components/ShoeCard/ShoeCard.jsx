@@ -6,7 +6,7 @@ const ShoeCard = ({ shoeData }) => {
     const { _id, name, price, sizes, coupon, discountPercentage, category, newArrival, image } = shoeData
     const rating = (Math.random() * 5).toFixed(1)
     return (
-        <Link to={`/orderPage/:${_id}`} className="shoe_card">
+        <Link to={`/shoeDetail/${_id}`} className="shoe_card">
 
             <div className="shoeImg">
                 <img className="productImg" src={image} alt="" />
