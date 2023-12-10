@@ -1,4 +1,5 @@
 import "./ShoeDetails.css";
+import LoadingAnimation from "../LoadingAnimation/LoadingAnimation";
 import Swal from "sweetalert2";
 import UseAxios from "../../Hooks & Functions/Axios/UseAxios";
 import { Rating } from "@mui/material";
@@ -7,6 +8,7 @@ import { useContext, useState } from "react";
 import { FiPlus } from "react-icons/fi";
 import { FiMinus } from "react-icons/fi";
 import { MdShoppingCart } from "react-icons/md";
+import { GlassMagnifier, Magnifier, MagnifierContainer, MagnifierPreview, MagnifierZoom, SideBySideMagnifier } from "react-image-magnifiers";
 import { useParams } from "react-router-dom";
 import { Context } from "../../Hooks & Functions/AauthContext";
 import { getItemFromLS } from "../../Hooks & Functions/locaStorage";
@@ -22,12 +24,13 @@ const ShoeDetail = () => {
     const { user } = useContext(Context)
 
 
-    const { data = {} } = useQuery({
+    const { data = {}, isLoading } = useQuery({
         queryKey: ["shoeDetail"],
         queryFn: async () => {
             const { data: myShoe } = await axios.get(`/single/shoe?id=${id}&&token=${token}`)
             setSelectedSize(myShoe.sizes[0])
             setTotalPrice(myShoe.price)
+            setQuantity(1)
             return myShoe
         }
     })
@@ -128,6 +131,7 @@ const ShoeDetail = () => {
         const { data: myOldCart } = await axios.get(`/user/check/cart?token=${token}&&id=${_id}&&size=${selectedSize}`)
 
 
+        console.log(myOldCart);
 
 
         if (myOldCart?.isExist) {
@@ -138,7 +142,7 @@ const ShoeDetail = () => {
             const newQuantity = parseInt(myOldCart.quantity + quantity)
 
             // updating the cart data
- 
+
             const { data: cartUpdate } = await axios.put(`/update/cart?token=${token}`, {
                 quantity: newQuantity,
                 totalPrice: newPrice,
@@ -148,7 +152,7 @@ const ShoeDetail = () => {
             Swal.fire({
                 title: "Successfully added to your cart",
                 text: "",
-                icon: "seccess"
+                icon: "success"
             });
 
             return
@@ -159,7 +163,7 @@ const ShoeDetail = () => {
         Swal.fire({
             title: "Successfully added to your cart",
             text: "",
-            icon: "seccess"
+            icon: "success"
         });
     }
 
@@ -168,56 +172,74 @@ const ShoeDetail = () => {
         <div className="shoe_detail_container">
 
 
-            <div className="bigShoeImg">
-                <img src={image} alt="" />
-            </div>
+            {
+                isLoading ?
+                    <LoadingAnimation />
+                    :
+                    <>
+
+                        <SideBySideMagnifier
+                            imageSrc={image}
+                            alwaysInPlace={true}
+                            className="magnifyImageContainer"
+                        >
+
+                        </SideBySideMagnifier>
 
 
-            <div className="detail_box_right">
-                <div className="shoeIntro">
-                    <h2>{name}</h2>
-                    <p>${price}</p>
-                    <Rating readOnly={true} value={rating} name="half-rating-read" defaultValue={2.5} precision={0.5} />
-                </div>
-
-                <div className="product_varients">
-                    <div className="sizes">
-
-                        <p>Select Size :</p>
-                        {
-                            sizes?.map((size, indx) => <button
-                                key={indx}
-                                style={size == selectedSize ? { background: "black", color: "white" } : {}}
-                                onClick={() => setSelectedSize(size)}
-                            >{size}
-                            </button>)
-                        }
-                    </div>
-
-                    <div className="quantity">
+                        {/* ----old display image----- */}
+                        {/* <div className="bigShoeImg">
+                            <img src={image} alt="" />
+                        </div> */}
 
 
+                        <div className="detail_box_right">
+                            <div className="shoeIntro">
+                                <h2>{name}</h2>
+                                <p>${price}</p>
+                                <Rating readOnly={true} value={rating} name="half-rating-read" defaultValue={2.5} precision={0.5} />
+                            </div>
 
-                        <p>Select quantity</p>
-                        <div className="quantityBox">
-                            <button disabled={quantity === 1 ? true : false} onClick={handleMinusQuantity}><FiMinus /></button>
-                            <input type="number" value={quantity} onChange={handleAddQuantityManually} />
-                            <button disabled={quantity === 10 ? true : false} onClick={handlePlusQuantity}><FiPlus /></button>
+                            <div className="product_varients">
+                                <div className="sizes">
+
+                                    <p>Select Size :</p>
+                                    {
+                                        sizes?.map((size, indx) => <button
+                                            key={indx}
+                                            style={size == selectedSize ? { background: "black", color: "white" } : {}}
+                                            onClick={() => setSelectedSize(size)}
+                                        >{size}
+                                        </button>)
+                                    }
+                                </div>
+
+                                <div className="quantity">
+
+
+
+                                    <p>Select quantity</p>
+                                    <div className="quantityBox">
+                                        <button disabled={quantity === 1 ? true : false} onClick={handleMinusQuantity}><FiMinus /></button>
+                                        <input type="number" value={quantity} onChange={handleAddQuantityManually} />
+                                        <button disabled={quantity === 10 ? true : false} onClick={handlePlusQuantity}><FiPlus /></button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div className="processButon">
+                                <button className="butNow">Buy Now</button>
+                                <button className="addCart" onClick={handleAddtoCart}> <MdShoppingCart />Add to cart</button>
+                            </div>
+
+                            <div className="total">
+                                <h2>Total : ${totalPrice}</h2>
+                            </div>
                         </div>
-
-                    </div>
-                </div>
-
-
-                <div className="processButon">
-                    <button className="butNow">Buy Now</button>
-                    <button className="addCart" onClick={handleAddtoCart}> <MdShoppingCart />Add to cart</button>
-                </div>
-
-                <div className="total">
-                    <h2>Total : ${totalPrice}</h2>
-                </div>
-            </div>
+                    </>
+            }
 
         </div >
     );

@@ -1,4 +1,5 @@
 import "./AllShoes.css";
+import LoadingAnimation from "../../Cards & Components/LoadingAnimation/LoadingAnimation";
 import PageBanner from "../../Shared/PageBanner/PageBanner";
 import ShoeCard from "../../Cards & Components/ShoeCard/ShoeCard";
 import UseAxios from "../../Hooks & Functions/Axios/UseAxios";
@@ -16,7 +17,7 @@ const AllShoes = () => {
     const token = getItemFromLS("token")
     const axios = UseAxios()
 
-    const { data } = useQuery({
+    const { data, isLoading } = useQuery({
         queryKey: ["shoes", priceRange, currentPage],
         queryFn: async () => {
             const { data: shoeData } = await axios.get(`/all/shoes?range=${priceRange}&&currentPage=${currentPage}&&token=${token}`)
@@ -50,23 +51,28 @@ const AllShoes = () => {
             <PageBanner sectionName={"All shoes"} routeArr={["Home", "/", "AllShoes"]} />
 
 
-            <div className="all_show_container">
-                <div className="filter">
-                    <select value={priceRange} onChange={handlePriceRange}>
-                        <option value="0,80">$ 0 - 80</option>
-                        <option value="81,100">$ 81 - 100</option>
-                        <option value="101,200">$ 101 - 200</option>
-                        <option value="" >Alll</option>
-                        <option value="all" style={{ display: "none" }}>Filter By price</option>
-                    </select>
-                </div>
+            {
+                isLoading ?
+                    <LoadingAnimation />
+                    :
+                    <div className="all_show_container">
+                        <div className="filter">
+                            <select value={priceRange} onChange={handlePriceRange}>
+                                <option value="0,80">$ 0 - 80</option>
+                                <option value="81,100">$ 81 - 100</option>
+                                <option value="101,200">$ 101 - 200</option>
+                                <option value="" >Alll</option>
+                                <option value="all" style={{ display: "none" }}>Filter By price</option>
+                            </select>
+                        </div>
 
-                <div className="all_shoe_card_container">
-                    {
-                        data?.result?.map(shoe => <ShoeCard key={shoe._id} shoeData={shoe} />)
-                    }
-                </div>
-            </div>
+                        <div className="all_shoe_card_container">
+                            {
+                                data?.result?.map(shoe => <ShoeCard key={shoe._id} shoeData={shoe} />)
+                            }
+                        </div>
+                    </div>
+            }
 
             <Pagination onChange={handleCurrentPage} count={Math.ceil(totalData / 9)} variant="outlined" shape="rounded" />
         </div>

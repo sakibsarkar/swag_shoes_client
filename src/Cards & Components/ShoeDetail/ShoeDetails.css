@@ -21,6 +21,13 @@
 
 }
 
+.magnifyImageContainer {
+    width: 746px;
+    height: 479px;
+    object-fit: cover;
+
+}
+
 
 .shoeIntro {
     width: fit-content;
