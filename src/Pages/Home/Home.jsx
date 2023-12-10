@@ -71,7 +71,7 @@ const Home = () => {
                                     < div className="arrivalDetails">
                                         <h3>{shoe.name}</h3>
                                         <p>$ {shoe.price}</p>
-                                        <Link className="arrivalBuy" to={`/details/${shoe._id}`}>BUY</Link>
+                                        <Link className="arrivalBuy" to={`/shoeDetail/${shoe._id}`}>BUY</Link>
                                     </div>
                                     : ""
                             }

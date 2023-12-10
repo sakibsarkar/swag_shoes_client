@@ -40,10 +40,10 @@ const Navbar = () => {
                             <div className="userImg" onClick={() => setShowDropDown(!showDropDown)}>
                                 <img src={user?.photoURL ? user.photoURL : defaultUser} alt="" />
                             </div>
-                            <div className="cart">
+                            <Link to={"/myCart"} className="cart">
                                 <IoCart />
                                 <p>{myCart.totalItem}</p>
-                            </div>
+                            </Link>
 
                             {
                                 showDropDown ?

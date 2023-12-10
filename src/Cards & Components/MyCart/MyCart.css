@@ -1,0 +1,8 @@
+.cartItemContainer {
+    padding: 80px 0;
+    display: grid;
+    grid-template-columns: repeat(1, 960px);
+    gap: 30px;
+    width: 960px;
+    margin: auto;
+}
