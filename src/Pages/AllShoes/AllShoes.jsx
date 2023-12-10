@@ -35,6 +35,8 @@ const AllShoes = () => {
             return
         }
 
+        setCurrentPage(0)
+
         setPriceRange(price_range)
 
     }
@@ -45,6 +47,8 @@ const AllShoes = () => {
 
         // window.scroll(0, 0)
     }
+
+    
     return (
         <div className="allShoeWrapper">
 

@@ -91,6 +91,23 @@
     border-left: 2px solid #13071d;
     border-radius: 2px;
     padding: 0 0 0 10px;
+    position: relative;
+}
+
+.cart>p {
+    width: 20px;
+    height: 19px;
+    position: absolute;
+    background-color: #ff6363;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 2px; */
+    font-size: 13px;
+    top: -7px;
+    right: -9px;
 }
 
 

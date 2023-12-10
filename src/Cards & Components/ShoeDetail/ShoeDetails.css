@@ -25,9 +25,20 @@
     width: 746px;
     height: 479px;
     object-fit: cover;
+    overflow: hidden;
 
 }
 
+.magnifyImageContainer>div {
+    width: 100%;
+    height: 100%;
+}
+
+.magnifyImageContainer>div>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 .shoeIntro {
     width: fit-content;

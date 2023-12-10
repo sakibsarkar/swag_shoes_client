@@ -8,7 +8,7 @@ import { useContext, useState } from "react";
 import { FiPlus } from "react-icons/fi";
 import { FiMinus } from "react-icons/fi";
 import { MdShoppingCart } from "react-icons/md";
-import { GlassMagnifier, Magnifier, MagnifierContainer, MagnifierPreview, MagnifierZoom, SideBySideMagnifier } from "react-image-magnifiers";
+import { SideBySideMagnifier } from "react-image-magnifiers";
 import { useParams } from "react-router-dom";
 import { Context } from "../../Hooks & Functions/AauthContext";
 import { getItemFromLS } from "../../Hooks & Functions/locaStorage";
@@ -21,7 +21,8 @@ const ShoeDetail = () => {
     const [quantity, setQuantity] = useState(1)
     const [totalPrice, setTotalPrice] = useState(0)
 
-    const { user } = useContext(Context)
+    const { user, myCart, setMyCart } = useContext(Context)
+
 
 
     const { data = {}, isLoading } = useQuery({
@@ -131,7 +132,7 @@ const ShoeDetail = () => {
         const { data: myOldCart } = await axios.get(`/user/check/cart?token=${token}&&id=${_id}&&size=${selectedSize}`)
 
 
-        console.log(myOldCart);
+
 
 
         if (myOldCart?.isExist) {
@@ -149,6 +150,9 @@ const ShoeDetail = () => {
                 cart_id: myOldCart.cart_id
             })
 
+
+
+
             Swal.fire({
                 title: "Successfully added to your cart",
                 text: "",
@@ -160,12 +164,14 @@ const ShoeDetail = () => {
 
 
         await axios.post(`/user/cart/add?token=${token}`, cartObject)
+        setMyCart({ cartData: [], totalItem: myCart.totalItem + 1 })
         Swal.fire({
             title: "Successfully added to your cart",
             text: "",
             icon: "success"
         });
     }
+
 
 
     return (

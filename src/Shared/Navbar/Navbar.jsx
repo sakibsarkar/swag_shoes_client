@@ -6,13 +6,19 @@ import { Link, NavLink } from "react-router-dom";
 import { Context } from "../../Hooks & Functions/AauthContext";
 
 const Navbar = () => {
-    const { user, logout } = useContext(Context)
+    const { user, logout, myCart } = useContext(Context)
     const [showDropDown, setShowDropDown] = useState(false)
     const defaultUser = "https://i.pinimg.com/1200x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
 
     const handleLogout = () => {
         logout()
     }
+
+
+
+
+
+
     return (
         <div className="navWrapper">
             <nav>
@@ -36,6 +42,7 @@ const Navbar = () => {
                             </div>
                             <div className="cart">
                                 <IoCart />
+                                <p>{myCart.totalItem}</p>
                             </div>
 
                             {
