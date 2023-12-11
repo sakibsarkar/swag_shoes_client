@@ -3,6 +3,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
 import MyCart from "../Cards & Components/MyCart/MyCart";
+import PaymentPage from "../Cards & Components/PaymentPage/PaymentPage";
 import ShoeDetail from "../Cards & Components/ShoeDetail/ShoeDetail";
 import Signup from "../Pages/Signup/Signup";
 import UserPrivateRoute from "../PrivateRoutes/UserPrivateRoute";
@@ -28,6 +29,10 @@ export const route = createBrowserRouter([
             {
                 path: "/myCart",
                 element: <UserPrivateRoute><MyCart /></UserPrivateRoute>
+            },
+            {
+                path: "/paymentPage",
+                element: <PaymentPage />
             }
             ,
             {

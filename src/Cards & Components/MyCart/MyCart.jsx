@@ -1,13 +1,13 @@
 import "./MyCart.css";
 import CartItemCard from "../CartItemCard/CartItemCard";
-import UseAxios from "../../Hooks & Functions/Axios/UseAxios";
+import UseAxios from "../../Hooks & Functions/Axios/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import { getItemFromLS } from "../../Hooks & Functions/locaStorage";
 
 const MyCart = () => {
     const token = getItemFromLS("token")
     const axios = UseAxios()
-    const { data = [] } = useQuery({
+    const { data = [], refetch } = useQuery({
         queryKey: ["myCartItems"],
         queryFn: async () => {
             const { data: cart } = await axios.get(`/myCart?token=${token}`)
@@ -22,7 +22,7 @@ const MyCart = () => {
         <div className="cartItemContainer">
 
             {
-                data?.map(cart => <CartItemCard key={cart._id} cart={cart}></CartItemCard>)
+                data?.map(cart => <CartItemCard refetch={refetch} key={cart._id} cart={cart}></CartItemCard>)
             }
 
         </div>

@@ -16,6 +16,9 @@ const AuthContext = ({ children }) => {
 
     const [myCart, setMyCart] = useState({ cartData: [], totalItem: 0 })
 
+    // PAYMENT DETAILS
+    const [paymentObj, setPaymentObj] = useState({})
+
 
 
     const token = getItemFromLS("token")
@@ -95,7 +98,9 @@ const AuthContext = ({ children }) => {
         waitForUser,
         loading,
         myCart,
-        setMyCart
+        setMyCart,
+        paymentObj,
+        setPaymentObj
 
 
     }

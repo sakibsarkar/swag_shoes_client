@@ -124,7 +124,9 @@ const ShoeDetail = () => {
             size: selectedSize,
             product_id: _id,
             product_img: image,
-            product_name: name
+            product_name: name,
+            coupon: coupon,
+            discount: discountPercentage
         }
 
 
@@ -137,7 +139,8 @@ const ShoeDetail = () => {
 
         if (myOldCart?.isExist) {
             // updating the old card price with new price
-            const newPrice = parseInt(myOldCart.totalPrice + totalPrice)
+            const newPrice = myOldCart.totalPrice + parseInt(totalPrice)
+
 
             // increasing the quantity with old quantity
             const newQuantity = parseInt(myOldCart.quantity + quantity)
@@ -171,6 +174,7 @@ const ShoeDetail = () => {
             icon: "success"
         });
     }
+
 
 
 
@@ -242,6 +246,7 @@ const ShoeDetail = () => {
 
                             <div className="total">
                                 <h2>Total : ${totalPrice}</h2>
+                                <p> Use coupon {coupon} to get {discountPercentage}% discount</p>
                             </div>
                         </div>
                     </>
