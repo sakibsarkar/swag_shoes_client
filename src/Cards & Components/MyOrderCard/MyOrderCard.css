@@ -1,0 +1,55 @@
+.orderHistoryCard {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 13px;
+    width: 1000px;
+    margin: auto;
+    background: white;
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+    position: relative;
+}
+
+.orderImg {
+    width: 152px;
+    height: 141px;
+    overflow: hidden;
+}
+
+.orderImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.pending {
+    background: #23b623ad;
+    width: fit-content;
+    padding: 3px 6px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 48px 0 0 0;
+}
+
+
+
+.orderCancelButton {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 9px 4px;
+    border: none;
+    background: #ff4a4a;
+    color: white;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    cursor: pointer;
+}

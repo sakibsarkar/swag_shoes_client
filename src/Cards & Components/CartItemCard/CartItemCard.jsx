@@ -30,7 +30,7 @@ const CartItemCard = ({ cart, refetch }) => {
 
     const hanldeBuy = () => {
         const paymentObject = {
-            user_name: user.name,
+            user_name: user.displayName,
             user_email: user.email,
             bill: totalPrice,
             coupon: coupon,

@@ -3,6 +3,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
 import MyCart from "../Cards & Components/MyCart/MyCart";
+import Myorders from "../Pages/Myorders/Myorders";
 import PaymentPage from "../Cards & Components/PaymentPage/PaymentPage";
 import ShoeDetail from "../Cards & Components/ShoeDetail/ShoeDetail";
 import Signup from "../Pages/Signup/Signup";
@@ -24,15 +25,19 @@ export const route = createBrowserRouter([
             },
             {
                 path: "/shoeDetail/:id",
-                element: <ShoeDetail />
+                element: <UserPrivateRoute> <ShoeDetail /></UserPrivateRoute>
             },
             {
                 path: "/myCart",
                 element: <UserPrivateRoute><MyCart /></UserPrivateRoute>
             },
             {
+                path: "/myOrders",
+                element: <UserPrivateRoute><Myorders /></UserPrivateRoute>
+            },
+            {
                 path: "/paymentPage",
-                element: <PaymentPage />
+                element: <UserPrivateRoute><PaymentPage /></UserPrivateRoute>
             }
             ,
             {

@@ -47,9 +47,9 @@ const Navbar = () => {
 
                             {
                                 showDropDown ?
-                                    <div className="userDropDown">
+                                    <div className="userDropDown" onClick={() => setShowDropDown(false)}>
                                         <Link>Profile</Link>
-                                        <Link>Order History</Link>
+                                        <Link to={"/myOrders"}>Order History</Link>
                                         <button onClick={handleLogout}>Log Out</button>
                                     </div>
                                     : ""

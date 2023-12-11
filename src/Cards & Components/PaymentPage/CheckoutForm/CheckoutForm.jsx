@@ -45,7 +45,7 @@ const CheckoutForm = () => {
     const month = MonthArr[monthNumber]
     const year = dateFun.getFullYear()
 
-    const today = `${date}/${month}/${year}`
+    const today = `${month} ${date},${year}`
 
     const handleCouponCheck = () => {
 
@@ -138,14 +138,17 @@ const CheckoutForm = () => {
 
 
             const paymentHistroy = {
-                user_email: paymentMethod?.user_email,
+                user_email: paymentObj?.user_email,
                 user_name: paymentObj.user_name,
                 price: amount,
                 date: today,
                 month: month,
                 isCouponUsed: isCouponUsed,
                 discount: paymentObj.discount,
-                status: "pending"
+                status: "pending",
+                product_id: paymentObj.product_id,
+                product_name: paymentObj.product_name,
+                product_img: paymentObj.product_img
             }
 
 
