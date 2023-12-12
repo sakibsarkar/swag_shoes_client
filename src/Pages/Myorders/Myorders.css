@@ -1,3 +1,45 @@
 .historyWrapper {
-    padding: 80px 0;
+    padding: 150px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 40px;
+    min-height: 80vh;
+    width: 1000px;
+    margin: auto;
+}
+
+.orderHistoryContainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1000);
+    gap: 10px;
+}
+
+.searchHistory {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #b4a8a8;
+    width: 300px;
+    height: 30px;
+    padding: 0 0 0 5px;
+}
+
+.searchHistory input {
+    border: none;
+    outline: none;
+    font-size: 17px;
+    width: 100%;
+
+}
+
+.searchIcon {
+    color: white;
+    background-color: #5d17eb;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 7px;
 }

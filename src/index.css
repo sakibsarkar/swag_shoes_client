@@ -9,6 +9,11 @@
     animation: rotate 2s linear infinite;
 }
 
+
+.hide {
+    display: none;
+}
+
 @keyframes rotate {
     100% {
         transform: rotate(360deg);

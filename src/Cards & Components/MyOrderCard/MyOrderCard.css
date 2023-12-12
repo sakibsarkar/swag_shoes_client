@@ -8,11 +8,13 @@
     background: white;
     box-shadow: 0 2px 16.8px 3.2px #00264214;
     position: relative;
+    border-radius: 13px;
+    overflow: hidden;
 }
 
 .orderImg {
-    width: 152px;
-    height: 141px;
+    width: 198px;
+    height: 180px;
     overflow: hidden;
 }
 
@@ -31,8 +33,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: black !important;
     color: white;
-    margin: 48px 0 0 0;
+    margin: 11px 0 0 0 !important;
 }
 
 
@@ -52,4 +55,14 @@
     gap: 8px;
     font-size: 15px;
     cursor: pointer;
+}
+
+
+.orderName h2 {
+    margin: 0 0 12px 0;
+}
+
+.orderName p {
+    margin: 0 0 4px 0;
+    color: #777777;
 }

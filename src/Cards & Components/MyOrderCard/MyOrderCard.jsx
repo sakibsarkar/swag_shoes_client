@@ -1,16 +1,36 @@
 import "./MyOrderCard.css";
 import Swal from "sweetalert2";
 import UseAxios from "../../Hooks & Functions/Axios/UseAxios";
-import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+import { MdOutlineContentCopy } from "react-icons/md";
 import { TbShoppingCartCancel } from "react-icons/tb";
+import { useCopyToClipboard } from "usehooks-ts";
 import { getItemFromLS } from "../../Hooks & Functions/locaStorage";
 
-const MyOrderCard = ({ order, refetch }) => {
-    const { _id, user_email, user_name, price, date, month, isCouponUsed, discount, status, product_id, product_img, product_name } = order || {}
+const MyOrderCard = ({ order, refetch, isSearching, searchValue }) => {
+    const { _id, user_email, user_name, price, date, month, isCouponUsed, discount, status, product_id, product_img, product_name, quantity } = order || {}
 
 
     const token = getItemFromLS("token")
     const axios = UseAxios()
+
+    // is search value matched
+    const [matched, setMatched] = useState(false)
+
+
+    const [value, copy] = useCopyToClipboard()
+
+    useEffect(() => {
+        if (month.toLowerCase().includes(searchValue) || product_name.toLowerCase().includes(searchValue) || _id.includes(searchValue)) {
+            setMatched(true)
+        }
+
+        else {
+            setMatched(false)
+
+        }
+    }, [month, product_name, _id, searchValue])
+
 
     const handleCanecelOrder = async () => {
         if (status === "pending") {
@@ -35,27 +55,73 @@ const MyOrderCard = ({ order, refetch }) => {
         }
     }
 
+
+
+    // id copyToclipBoard
+    const handleCopyToclipBoard = () => {
+        copy(_id)
+
+        Swal.fire({
+            title: "Successfully copy to your clipboard",
+            text: "",
+            icon: "success"
+        });
+    }
+
+
     return (
-        <div className="orderHistoryCard">
-            <div className="orderImg">
-                <img src={product_img} alt="" />
-            </div>
+        <>
 
-            <div className="orderName">
-                <h2>{product_name}</h2>
-                <p>Total Price :{price}</p>
-                <p>{date}</p>
-
-                <p className="pending">{status}</p>
-
-
-            </div>
             {
-                status == "pending" ?
-                    <button onClick={handleCanecelOrder} className="orderCancelButton"><TbShoppingCartCancel />Cancel Order</button>
-                    : ""
+                isSearching ?
+                    <div className={matched ? "orderHistoryCard" : "hide"}>
+                        <div className="orderImg">
+
+                            <img src={product_img} alt="" />
+                        </div>
+
+                        <div className="orderName">
+                            <h2>{product_name}</h2>
+                            <p>{date}</p>
+                            <p>Total Price :${price}</p>
+                            <p>Quantity : X{quantity}</p>
+                            <p onClick={handleCopyToclipBoard} style={{ cursor: "pointer" }}>Order Id: {_id} <MdOutlineContentCopy /></p>
+                            <p className="pending">{status}</p>
+
+
+                        </div>
+                        {
+                            status == "pending" ?
+                                <button onClick={handleCanecelOrder} className="orderCancelButton"><TbShoppingCartCancel />Cancel Order</button>
+                                : ""
+                        }
+                    </div>
+
+                    :
+                    <div className="orderHistoryCard">
+                        <div className="orderImg">
+                            <img src={product_img} alt="" />
+                        </div>
+
+                        <div className="orderName">
+                            <h2>{product_name}</h2>
+                            <p>{date}</p>
+                            <p>Total Price :${price}</p>
+                            <p>Quantity : X{quantity}</p>
+                            <p onClick={handleCopyToclipBoard} style={{ cursor: "pointer" }}>Order Id: {_id} <MdOutlineContentCopy /></p>
+                            <p className="pending">{status}</p>
+
+
+                        </div>
+                        {
+                            status == "pending" ?
+                                <button onClick={handleCanecelOrder} className="orderCancelButton"><TbShoppingCartCancel />Cancel Order</button>
+                                : ""
+                        }
+                    </div>
             }
-        </div>
+
+        </>
     );
 };
 
