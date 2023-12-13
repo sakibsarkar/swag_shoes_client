@@ -1,4 +1,6 @@
+import AdminPrivateRoute from "../PrivateRoutes/AdminPrivateRoute";
 import AllShoes from "../Pages/AllShoes/AllShoes";
+import DashboardLayout from "../Layout/DashboardLayout";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
@@ -7,6 +9,7 @@ import Myorders from "../Pages/Myorders/Myorders";
 import PaymentPage from "../Cards & Components/PaymentPage/PaymentPage";
 import ShoeDetail from "../Cards & Components/ShoeDetail/ShoeDetail";
 import Signup from "../Pages/Signup/Signup";
+import Statistics from "../AdminPage/Statistics/Statistics";
 import UserPrivateRoute from "../PrivateRoutes/UserPrivateRoute";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -47,6 +50,17 @@ export const route = createBrowserRouter([
             {
                 path: "/signup",
                 element: <Signup />
+            }
+        ]
+    }
+    ,
+    {
+        path: "/dashboard",
+        element: <DashboardLayout />,
+        children: [
+            {
+                path: "/dashboard",
+                element: <AdminPrivateRoute><Statistics /></AdminPrivateRoute>
             }
         ]
     }

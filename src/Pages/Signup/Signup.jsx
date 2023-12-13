@@ -22,6 +22,18 @@ const Signup = () => {
 
     const address = "/"
 
+
+
+    // registration date 
+    const MonthArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    const dateFun = new Date()
+    const date = dateFun.getDate()
+    const monthNumber = dateFun.getMonth()
+    const month = MonthArr[monthNumber]
+    const year = dateFun.getFullYear()
+
+    const today = `${month} ${date},${year}`
+
     const axios = UseAxios()
     const handleSignup = async (e) => {
         e.preventDefault()
@@ -84,12 +96,27 @@ const Signup = () => {
             const { data: token } = await axios.post("/user/token", { email: email })
 
 
-            // to refetch the user data to get the updated info
-            setWaitForUser(!waitForUser)
 
             // set token to Local storage
             addItemToLS("token", token)
 
+
+
+            const userObj = {
+                name: `${firstName} ${lastName}`,
+                email: email,
+                registerDate: today,
+                role: "user",
+
+            }
+
+            const { data: addData } = await axios.put(`/addUser?token=${token}`, userObj)
+
+            // to refetch the user data to get the updated info
+            setWaitForUser(!waitForUser)
+
+
+            // navigate 
             navigate(address)
 
 

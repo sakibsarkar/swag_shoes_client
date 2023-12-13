@@ -1,4 +1,3 @@
-import UseAxios from "./Axios/UseAxios";
 import auth from "../Firebase/Firebase-config";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
@@ -15,6 +14,11 @@ const AuthContext = ({ children }) => {
     const [waitForUser, setWaitForUser] = useState(true)
 
     const [myCart, setMyCart] = useState({ cartData: [], totalItem: 0 })
+
+
+    const [userRole, setUserRole] = useState("")
+
+
 
     // PAYMENT DETAILS
     const [paymentObj, setPaymentObj] = useState({})
@@ -55,6 +59,7 @@ const AuthContext = ({ children }) => {
     // logOut
     const logout = () => {
         setLoading(true)
+        setUserRole("")
         deleteItemFromLS("token")
         return signOut(auth)
     }
@@ -83,9 +88,19 @@ const AuthContext = ({ children }) => {
     useEffect(() => {
         onAuthStateChanged(auth, USER => {
             setUser(USER)
+            if (USER) {
+                axios.get(`http://localhost:5000/api/user/role?token=${token}`)
+                    .then(({ data }) => {
+                        setUserRole(data?.role)
+                            | setLoading(false)
+                    })
+
+                return;
+            }
+
             setLoading(false)
         })
-    }, [waitForUser])
+    }, [waitForUser, token])
 
     const items = {
         user,
@@ -100,7 +115,8 @@ const AuthContext = ({ children }) => {
         myCart,
         setMyCart,
         paymentObj,
-        setPaymentObj
+        setPaymentObj,
+        userRole
 
 
     }

@@ -1,0 +1,76 @@
+.statisticContainer {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.stateCards {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.stateCards>div {
+    width: 33.33%;
+
+    height: 114px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+}
+
+
+.totalShipped {
+    background-color: #17d15f;
+
+}
+
+
+.totalPending {
+    background-color: #fabf2f;
+
+}
+
+.totalOrderCard {
+    background-color: #353ce3;
+
+}
+
+
+.stateCards>div>svg {
+    font-size: 35px;
+}
+
+
+
+
+.statisticChart {
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+}
+
+
+.everyOrderChart {
+    width: 45%;
+    padding: 20px;
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+}
+
+.totalOrderChart {
+    width: 45%;
+    padding: 20px;
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+}

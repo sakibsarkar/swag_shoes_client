@@ -1,0 +1,32 @@
+.dashlogo {
+    width: 150px;
+    display: inline-block;
+}
+
+.dashlogo img {
+    width: 100%;
+}
+
+.dashBoardLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%
+}
+
+.dashBoardLinks a {
+    width: calc(100% - 10px);
+    text-align: left;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    padding: 20px 0 20px 10px;
+}
+
+.dashBoardLinks .active {
+    background-color: rgb(0, 128, 255);
+    color: white;
+}

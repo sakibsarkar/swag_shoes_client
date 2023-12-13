@@ -6,7 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 import { Context } from "../../Hooks & Functions/AauthContext";
 
 const Navbar = () => {
-    const { user, logout, myCart } = useContext(Context)
+    const { user, logout, myCart, userRole } = useContext(Context)
     const [showDropDown, setShowDropDown] = useState(false)
     const defaultUser = "https://i.pinimg.com/1200x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
 
@@ -49,6 +49,20 @@ const Navbar = () => {
                                 showDropDown ?
                                     <div className="userDropDown" onClick={() => setShowDropDown(false)}>
                                         <Link>Profile</Link>
+                                        {
+                                            userRole ?
+                                                <>
+                                                    {
+
+                                                        userRole == "admin" ?
+                                                            <Link to={"/dashboard"}>Dashboard</Link>
+                                                            :
+                                                            ""
+                                                    }
+                                                </>
+                                                :
+                                                ""
+                                        }
                                         <Link to={"/myOrders"}>Order History</Link>
                                         <button onClick={handleLogout}>Log Out</button>
                                     </div>

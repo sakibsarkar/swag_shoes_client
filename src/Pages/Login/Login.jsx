@@ -37,6 +37,7 @@ const Login = () => {
             const { data: token } = await axios.post("/user/token", { email: email })
             addItemToLS("token", token)
 
+
             // authentication
             const { user } = await login(email, password)
 
