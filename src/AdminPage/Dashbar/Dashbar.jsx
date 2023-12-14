@@ -20,8 +20,8 @@ const Dashbar = () => {
             <div className="dashBoardLinks">
                 <NavLink to={"/dashboard/statistics"}><GrLineChart />Statistics</NavLink>
                 <NavLink to={"/dashboard/allOrders"}><FaBox /> All Orders</NavLink>
-                <NavLink to={"/pendingOrders"}><MdOutlinePendingActions />Pending Orders</NavLink>
-                <NavLink to={"/pendingOrders"}><MdOutlineFreeCancellation />Cancel Request</NavLink>
+                <NavLink to={"/dashboard/pendingOrders"}><MdOutlinePendingActions />Pending Orders</NavLink>
+                <NavLink to={"/dashboard/cancelRequest"}><MdOutlineFreeCancellation />Cancel Request</NavLink>
             </div>
 
 

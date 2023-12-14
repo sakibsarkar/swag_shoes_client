@@ -1,6 +1,7 @@
 import AdminPrivateRoute from "../PrivateRoutes/AdminPrivateRoute";
 import AllOrders from "../AdminPage/AllOrders/AllOrders";
 import AllShoes from "../Pages/AllShoes/AllShoes";
+import CancelRequest from "../AdminPage/CancelRequest/CancelRequest";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -66,6 +67,10 @@ export const route = createBrowserRouter([
             {
                 path: "/dashboard/allOrders",
                 element: <AdminPrivateRoute><AllOrders /></AdminPrivateRoute>
+            },
+            {
+                path: "/dashboard/cancelRequest",
+                element: <AdminPrivateRoute><CancelRequest /></AdminPrivateRoute>
             }
         ]
     }

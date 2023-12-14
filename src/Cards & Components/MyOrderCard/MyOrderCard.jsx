@@ -65,7 +65,59 @@ const MyOrderCard = ({ order, refetch, isSearching, searchValue }) => {
             title: "Successfully copy to your clipboard",
             text: "",
             icon: "success"
+        })
+    }
+
+
+    // request for cancel order
+    const handleSendRequest = async () => {
+
+        const cancelRequestData = {
+            user_name,
+            user_email,
+            product_id,
+            product_img,
+            req_status: "pending"
+        }
+
+
+        Swal.fire({
+            title: "Do you want to save the changes?",
+            showDenyButton: true,
+            confirmButtonText: "Yes",
+            denyButtonText: `No`
+        }).then(async (result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+
+
+                if (data.exist) {
+                    Swal.fire({
+                        title: "Already requested. please wait for admin confirmation",
+                        text: "",
+                        icon: "error"
+                    });
+                    return
+                }
+                Swal.fire({
+                    title: "Successfully request send",
+                    text: "",
+                    icon: "success"
+                });
+
+
+            }
+
+
+            else if (result.isDenied) {
+                return
+            }
         });
+
+        const { data } = await axios.post(`/request/for/cancel?token=${token}`, cancelRequestData)
+
+
+
     }
 
 
@@ -117,6 +169,13 @@ const MyOrderCard = ({ order, refetch, isSearching, searchValue }) => {
                             status == "pending" ?
                                 <button onClick={handleCanecelOrder} className="orderCancelButton"><TbShoppingCartCancel />Cancel Order</button>
                                 : ""
+                        }
+
+                        {
+                            status === "Ready to ship" ?
+                                <button className="orderCancelButton" onClick={handleSendRequest}><TbShoppingCartCancel />Request for cancel</button>
+                                :
+                                ""
                         }
                     </div>
             }

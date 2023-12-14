@@ -52,7 +52,7 @@ const Statistics = () => {
 
                         return
                     }
-                    setChartDataKeys([...chartDataKeys, state.date])
+                    setChartDataKeys([state.date, ...chartDataKeys])
                     return
 
                 }
@@ -68,15 +68,7 @@ const Statistics = () => {
     })
 
 
-    // useEffect(() => {
-    //     for (let i = 0; i < data.length; i++) {
-    //         if (data[i].status == "pending") {
-    //             setPendingOrders(pendingorders + 1)
-    //         }
-    //     }
-    // }, [data, pendingorders])
-
-
+ 
 
     const everyDayChart = [
         [
@@ -85,13 +77,13 @@ const Statistics = () => {
 
 
         ],
-        ...data.map((value) => [value.date, value.price],)
+        ...data.reverse().map((value) => [value.date, value.price],)
 
     ];
 
     const barChart = [
         ["Day", "Total Sale"],
-        ...chartDataKeys.reverse().map((value, index) => [value, chartDataObj[value]],)
+        ...chartDataKeys.map((value, index) => [value, chartDataObj[value]],)
     ];
 
 
@@ -103,7 +95,7 @@ const Statistics = () => {
         ["Shipped", (totalShipped / data.length) * 100]
     ]
 
-    console.log(pireChartData);
+
     return (
         <div className="statisticContainer">
 
