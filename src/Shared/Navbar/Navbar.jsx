@@ -55,7 +55,7 @@ const Navbar = () => {
                                                     {
 
                                                         userRole == "admin" ?
-                                                            <Link to={"/dashboard"}>Dashboard</Link>
+                                                            <Link to={"/dashboard/statistics"}>Dashboard</Link>
                                                             :
                                                             ""
                                                     }

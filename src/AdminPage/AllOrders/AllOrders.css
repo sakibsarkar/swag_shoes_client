@@ -1,0 +1,20 @@
+.ordersCardCon {
+    display: grid;
+    grid-template-columns: repeat(2, 655px);
+    width: fit-content;
+    gap: 20px;
+}
+
+.ordersCardWrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    min-height: 100vh;
+}
+
+
+.ordersCardWrapper>h1 {
+    margin: 50px;
+}

@@ -149,7 +149,8 @@ const CheckoutForm = () => {
                 product_id: paymentObj.product_id,
                 product_name: paymentObj.product_name,
                 product_img: paymentObj.product_img,
-                quantity: paymentObj.quantity
+                quantity: paymentObj.quantity,
+                size: paymentObj.size
             }
 
 

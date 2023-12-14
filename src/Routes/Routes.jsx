@@ -1,4 +1,5 @@
 import AdminPrivateRoute from "../PrivateRoutes/AdminPrivateRoute";
+import AllOrders from "../AdminPage/AllOrders/AllOrders";
 import AllShoes from "../Pages/AllShoes/AllShoes";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Home from "../Pages/Home/Home";
@@ -59,8 +60,12 @@ export const route = createBrowserRouter([
         element: <DashboardLayout />,
         children: [
             {
-                path: "/dashboard",
+                path: "/dashboard/statistics",
                 element: <AdminPrivateRoute><Statistics /></AdminPrivateRoute>
+            },
+            {
+                path: "/dashboard/allOrders",
+                element: <AdminPrivateRoute><AllOrders /></AdminPrivateRoute>
             }
         ]
     }

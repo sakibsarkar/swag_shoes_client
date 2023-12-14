@@ -96,25 +96,46 @@ const Statistics = () => {
 
 
 
+    const pireChartData = [
+        ["Section", "state",],
+        // [data.length, pendingorders, totalShipped]
+        ["Pending", (pendingorders / data.length) * 100],
+        ["Shipped", (totalShipped / data.length) * 100]
+    ]
 
+    console.log(pireChartData);
     return (
         <div className="statisticContainer">
 
 
             <div className="stateCards">
-                <div className="totalOrderCard">
-                    <FaBoxOpen />
-                    <h1>Total Order {data.length}</h1>
+                <div>
+                    <div className="totalOrderCard">
+                        <FaBoxOpen className="stateIcon" />
+                        <h1>Total Order {data.length}</h1>
+                    </div>
+
+                    <div className="totalPending">
+                        <MdPendingActions className="stateIcon" />
+                        <h1>Total Pending {pendingorders}</h1>
+                    </div>
+                    <div className="totalShipped">
+                        <MdLocalShipping className="stateIcon" />
+                        <h1>Total Shipped {totalShipped}</h1>
+                    </div>
                 </div>
 
-                <div className="totalPending">
-                    <MdPendingActions />
-                    <h1>Total Pending {pendingorders}</h1>
+                <div className="pieChart">
+                    <Chart
+                        chartType="PieChart"
+                        data={pireChartData}
+
+                        width={"100%"}
+                        height={"200px"}
+                    />
                 </div>
-                <div className="totalShipped">
-                    <MdLocalShipping />
-                    <h1>Total Shipped {totalShipped}</h1>
-                </div>
+
+
             </div>
 
             <div className="statisticChart">

@@ -13,43 +13,70 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
 }
 
 .stateCards>div {
-    width: 33.33%;
-
-    height: 114px;
+    width: calc(100% - 400px);
+    height: 200px;
     border-radius: 5px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    gap: 10px;
     color: white;
-    box-shadow: 0 2px 16.8px 3.2px #00264214;
+    overflow: hidden;
 }
 
 
 .totalShipped {
     background-color: #17d15f;
-
+    height: 100%;
+    width: 34%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
 }
 
 
 .totalPending {
     background-color: #fabf2f;
-
+    height: 100%;
+    width: 34%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
 }
+
+
 
 .totalOrderCard {
     background-color: #353ce3;
+    border-radius: 5px;
 
+    height: 100%;
+    width: 34%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 
-.stateCards>div>svg {
+
+.stateIcon {
     font-size: 35px;
 }
 
 
+.pieChart {
+    width: 400px !important;
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+}
 
 
 .statisticChart {
@@ -73,4 +100,5 @@
     width: 45%;
     padding: 20px;
     box-shadow: 0 2px 16.8px 3.2px #00264214;
+
 }
