@@ -77,7 +77,9 @@ const MyOrderCard = ({ order, refetch, isSearching, searchValue }) => {
             user_email,
             product_id,
             product_img,
-            req_status: "pending"
+            product_name,
+            req_status: "pending",
+            orderId: _id
         }
 
 

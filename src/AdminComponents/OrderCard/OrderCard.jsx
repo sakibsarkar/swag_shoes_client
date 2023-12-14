@@ -1,4 +1,5 @@
 import "./OrderCard.css";
+import Swal from "sweetalert2";
 import UseAxios from "../../Hooks & Functions/Axios/UseAxios";
 import { FaDollarSign } from "react-icons/fa";
 import { GrLinkNext } from "react-icons/gr";
@@ -22,12 +23,21 @@ const OrderCard = ({ order, refetch, setTotalEarning, totalEarning }) => {
     const orderNextStep = async () => {
         if (status === "pending") {
             const { data } = await axios.put(`/order/status?token=${token}`, { status: status, orderId: _id })
-            console.log(data);
+            Swal.fire({
+                title: "Great your product only one step away from shipment",
+                text: "",
+                icon: "success"
+            })
             refetch()
             return
         }
         if (status === "Ready to ship") {
             const { data } = await axios.put(`/order/status?token=${token}`, { status: status, orderId: _id })
+            Swal.fire({
+                title: "Great your product has been delivered to custome",
+                text: "",
+                icon: "success"
+            })
             refetch()
             return
         }

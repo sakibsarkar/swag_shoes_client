@@ -1,0 +1,54 @@
+.cancelOrderCard {
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+    width: 360px;
+    padding: 0 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 22px;
+
+}
+
+
+.reqDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.cancelReqImg {
+    width: 360px;
+    height: 180px;
+
+}
+
+.cancelReqImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.reqDetails {
+    padding: 0 0 0 10px;
+}
+
+.requestActionButton {
+    display: flex;
+    justify-content: flex-start;
+    gap: 11px;
+    padding: 0 0 0 10px;
+}
+
+.requestActionButton button {
+    border: none;
+    padding: 6px 24px;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    color: white;
+}

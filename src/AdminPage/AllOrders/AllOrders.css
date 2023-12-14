@@ -5,6 +5,10 @@
     gap: 20px;
 }
 
+.totalEarning {
+    font-size: 25px;
+}
+
 .ordersCardWrapper {
     display: flex;
     justify-content: flex-start;

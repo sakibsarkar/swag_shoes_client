@@ -47,7 +47,7 @@ const AllOrders = () => {
             <h1>All Orders</h1>
 
 
-            <p>Total Earning : ${totalEarning}</p>
+            <p className="totalEarning">Total Earning : ${totalEarning}</p>
 
 
 
@@ -57,6 +57,7 @@ const AllOrders = () => {
                 {
                     data?.map(order => <OrderCard setTotalEarning={setTotalEarning} totalEarning={totalEarning} key={order._id} refetch={refetch} order={order} />)
                 }
+
             </div>
 
         </div>

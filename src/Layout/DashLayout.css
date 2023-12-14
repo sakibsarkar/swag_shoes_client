@@ -16,7 +16,7 @@
 .dashOutlet {
     width: calc(100% - 275px);
     background-color: rgb(255, 255, 255);
-    min-height: 100vh;
+    height: 100vh;
     overflow-y: auto;
     padding: 0 30px;
 }

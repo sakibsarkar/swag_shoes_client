@@ -10,7 +10,7 @@ const CancelRequest = () => {
     const token = getItemFromLS("token")
     const axios = UseAxios()
 
-    const { data = [] } = useQuery({
+    const { data = [], refetch } = useQuery({
         queryKey: ["cancel request"],
         queryFn: async () => {
             const { data: request } = await axios.get(`/cancel/request?token=${token}`)
@@ -21,7 +21,7 @@ const CancelRequest = () => {
         <div>
 
             {
-                data?.map(request => <CancelRequestCard key={request._id} request={request} />)
+                data?.map(request => <CancelRequestCard key={request._id} request={request} refetch={refetch} />)
             }
 
         </div>
