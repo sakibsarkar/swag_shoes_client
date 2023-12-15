@@ -32,7 +32,7 @@ const Navbar = () => {
         <div className="navWrapper">
             <nav>
                 <div className="logo">
-                    <img src="https://i.ibb.co/jD0cWQ4/LOGO.png" alt="" />
+                    <img src="https://i.ibb.co/0m6QGR0/BWlogo.png" alt="" />
                 </div>
 
                 <ul>
@@ -98,16 +98,16 @@ const Navbar = () => {
                                 <img src="https://i.ibb.co/0m6QGR0/BWlogo.png" alt="" />
                             </div>
                             <div className="drawerLinks">
-                                <Link to={"/"}><GoHome />Home</Link>
-                                <Link to={"/allShoes"}><GiConverseShoe />All Shoes</Link>
-                                <Link to={"/contact"}><GrContact />Contact</Link>
+                                <NavLink to={"/"}><GoHome />Home</NavLink>
+                                <NavLink to={"/allShoes"}><GiConverseShoe />All Shoes</NavLink>
+                                <NavLink to={"/contact"}><GrContact />Contact</NavLink>
                                 {
                                     user ?
                                         <>
 
-                                            <Link to={"/myCart"}><FaUser /> My cart</Link>
-                                            <Link to={"/myCart"}><IoCart /> My cart</Link>
-                                            <Link to={"/myOrders"}><CiShoppingBasket />Order History</Link>
+                                            <NavLink to={"/myCart"}><FaUser /> My cart</NavLink>
+                                            <NavLink to={"/myCart"}><IoCart /> My cart</NavLink>
+                                            <NavLink to={"/myOrders"}><CiShoppingBasket />Order History</NavLink>
 
 
                                             {

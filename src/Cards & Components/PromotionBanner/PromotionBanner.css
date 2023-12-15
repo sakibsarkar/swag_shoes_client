@@ -42,3 +42,11 @@
     color: #c2c2c242;
     z-index: 1;
 }
+
+
+
+@media screen and (max-width: 495px) {
+    .promotionalBannerCon h1 {
+        font-size: 28px;
+    }
+}

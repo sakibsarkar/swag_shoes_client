@@ -1,8 +1,9 @@
 import "./CartItemCard.css";
 import Swal from "sweetalert2";
 import UseAxios from "../../Hooks & Functions/Axios/UseAxios";
-import { getItem } from "localforage";
 import { useContext } from "react";
+import { BsCartX } from "react-icons/bs";
+import { TbShoppingCartDollar } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../Hooks & Functions/AauthContext";
 import { getItemFromLS } from "../../Hooks & Functions/locaStorage";
@@ -70,10 +71,11 @@ const CartItemCard = ({ cart, refetch }) => {
 
 
             </div>
-
             <div className="cart_card_right">
-                <button style={{ background: "#ff5b5b" }} onClick={handleDelete}>Remove</button>
-                <button style={{ background: "#0ca21f" }} onClick={hanldeBuy}>Buy</button>
+                <div className="cartButtons">
+                    <button style={{ background: "transparent", border: "1px solid black", color: "black" }} onClick={handleDelete} className="removeCart"><BsCartX />Remove</button>
+                    <button style={{ background: "black" }} onClick={hanldeBuy} className="buyCart"><TbShoppingCartDollar />Buy</button>
+                </div>
             </div>
 
 

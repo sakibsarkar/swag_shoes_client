@@ -6,3 +6,27 @@
     width: 960px;
     margin: auto;
 }
+
+
+
+
+
+@media screen and (max-width: 570px) {
+    .cartItemContainer {
+        grid-template-columns: repeat(1, 240px);
+        width: 100vw;
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 570px) and (max-width: 965px) {
+
+    .cartItemContainer {
+        grid-template-columns: repeat(1, 95vw);
+        width: 100vw;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (min-width: 1921px) {}

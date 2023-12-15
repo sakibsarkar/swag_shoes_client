@@ -88,11 +88,11 @@
 
     .categoryCards {
         width: 100%;
-        grid-template-columns: repeat(2, 44.5vw);
+        grid-template-columns: repeat(2, 44vw);
     }
 
     .categoryCard {
-        width: 44.5vw;
+        width: 43vw;
     }
 }
 
