@@ -5,7 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 const Slider = () => {
     return (
         <div className="bannerSlider">
-            <Carousel autoPlay={true} interval={2500} emulateTouch={true} infiniteLoop={true}>
+            <Carousel autoPlay={false} interval={2500} emulateTouch={true} infiniteLoop={true}>
                 <div className="sliderBOX">
                     <img className="bannerImg" src="https://i.ibb.co/ZhKXzdF/shoe9.jpg" />
                     <div id="firstBannerContent">

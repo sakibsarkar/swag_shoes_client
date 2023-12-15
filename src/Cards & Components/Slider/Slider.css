@@ -49,9 +49,13 @@
 
 
 #secondBannerContent {
-    width: fit-content !important;
+    width: 100% !important;
     position: absolute;
-    left: 35%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     top: 46px;
 
 }
@@ -155,3 +159,112 @@
 .bannerSlider .carousel .thumbs-wrapper {
     display: none !important;
 }
+
+
+
+
+@media screen and (max-width: 400px) {
+
+
+    .sliderCon {
+        width: 90vw;
+    }
+
+    #firstBannerContent {
+        right: 15px;
+        top: 25%;
+        width: 47% !important;
+    }
+
+    #firstBannerContent h1 {
+        font-size: 26PX;
+    }
+
+    #firstBannerContent p {
+        display: none;
+    }
+
+    #firstBannerContent button {
+        padding: 8px 3px;
+
+    }
+
+    #thirdBannerContent {
+        left: 32px;
+        bottom: 27%;
+    }
+
+    #thirdBannerContent h1 {
+        font-size: 31px;
+    }
+
+
+}
+
+
+
+@media screen and (min-width: 400px) and (max-width: 1020px) {
+
+
+
+    .sliderCon {
+        width: 90vw;
+    }
+
+    #firstBannerContent {
+        right: 15px;
+        top: 15%;
+        width: 47% !important;
+    }
+
+    #firstBannerContent h1 {
+        font-size: 26PX;
+    }
+
+    #firstBannerContent p {
+        font-size: 12px;
+    }
+
+    #firstBannerContent button {
+        padding: 8px 3px;
+
+    }
+
+    #thirdBannerContent {
+        left: 40px;
+    }
+
+    #thirdBannerContent h1 {
+        font-size: 31px;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1020px) {
+    .sliderCon {
+        width: 90vw;
+    }
+
+    #firstBannerContent {
+        right: 15px;
+        top: 25%;
+        width: 47% !important;
+    }
+
+    #firstBannerContent h1 {
+        font-size: 34PX;
+    }
+
+    #firstBannerContent p {
+        font-size: 12px;
+    }
+
+
+}
+
+@media screen and (min-width: 1020px) and (max-width: 1350px) {
+    .sliderCon {
+        width: 1000px;
+    }
+}
+
+@media screen and (min-width: 1921px) {}
