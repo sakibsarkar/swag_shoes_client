@@ -43,6 +43,7 @@ const Swipper = () => {
                     }}
                     modules={[EffectFade, Navigation, Pagination]}
                     className="mySwiper"
+                    height={"100%"}
                 >
                     <SwiperSlide>
                         <img className="swipperIMG" src="https://i.ibb.co/qr3mpnJ/Shoe-3.jpg" />
