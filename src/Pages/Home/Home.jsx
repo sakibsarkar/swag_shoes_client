@@ -83,6 +83,43 @@ const Home = () => {
 
             </div>
 
+            <div className="newArrivalWrapper newArrivalWrapperV2">
+                <div className="newTitle">
+                    <h1>New Arrival</h1>
+                    <p>Just new</p>
+                </div>
+
+
+                {/* swiper js swiper */}
+                <Swiper
+                    slidesPerView={2}
+                    spaceBetween={25}
+                    pagination={false}
+                    modules={[Pagination]}
+                    className="mySwiper arrivalSlider"
+                >
+                    {
+                        shoes?.map(shoe => <SwiperSlide onMouseEnter={() => hanldeShowDetails(shoe._id)} onMouseLeave={handleHideDetails} className="productCard" key={shoe._id}>
+                            <div className="newArrivalImg">
+                                <img src={shoe?.image} alt="" />
+                            </div>
+
+                            {
+                                productId == shoe._id ?
+                                    < div className="arrivalDetails">
+                                        <h3>{shoe.name}</h3>
+                                        <p>$ {shoe.price}</p>
+                                        <Link className="arrivalBuy" to={`/shoeDetail/${shoe._id}`}>BUY</Link>
+                                    </div>
+                                    : ""
+                            }
+
+                        </SwiperSlide>)
+                    }
+
+                </Swiper>
+
+            </div>
 
             {/* <PromotionBanner /> */}
 
