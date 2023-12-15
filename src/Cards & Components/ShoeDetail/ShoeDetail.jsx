@@ -9,7 +9,7 @@ import { FiPlus } from "react-icons/fi";
 import { FiMinus } from "react-icons/fi";
 import { MdShoppingCart } from "react-icons/md";
 import { SideBySideMagnifier } from "react-image-magnifiers";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Context } from "../../Hooks & Functions/AauthContext";
 import { getItemFromLS } from "../../Hooks & Functions/locaStorage";
 
@@ -21,7 +21,9 @@ const ShoeDetail = () => {
     const [quantity, setQuantity] = useState(1)
     const [totalPrice, setTotalPrice] = useState(0)
 
-    const { user, myCart, setMyCart } = useContext(Context)
+    const { user, myCart, setMyCart, paymentObj, setPaymentObj } = useContext(Context)
+
+    const navigate = useNavigate()
 
 
 
@@ -176,6 +178,27 @@ const ShoeDetail = () => {
     }
 
 
+    // but the shoe
+    const handleBuy = () => {
+        // user_name,user_email,bill,coupon,product_img,product_name,quantity,size,product_id,discount,cart_id
+
+        const paymentDetails = {
+            user_name: user.dispalyName,
+            user_email: user.email,
+            bill: price,
+            coupon: coupon,
+            product_img: image,
+            product_name: name,
+            quantity: quantity,
+            size: selectedSize,
+            product_id: _id,
+            discount: discountPercentage,
+            cart_id: "direct buy"
+        }
+        setPaymentObj(paymentDetails)
+        navigate("/paymentPage")
+    }
+
 
 
     return (
@@ -240,7 +263,7 @@ const ShoeDetail = () => {
 
 
                             <div className="processButon">
-                                <button className="butNow">Buy Now</button>
+                                <button className="butNow" onClick={handleBuy}>Buy Now</button>
                                 <button className="addCart" onClick={handleAddtoCart}> <MdShoppingCart />Add to cart</button>
                             </div>
 
