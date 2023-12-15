@@ -84,7 +84,7 @@ const Home = () => {
             </div>
 
 
-            <PromotionBanner />
+            {/* <PromotionBanner /> */}
 
         </div >
     );

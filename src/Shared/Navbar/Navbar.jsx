@@ -1,6 +1,12 @@
 import "./Navbar.css";
 import { useContext, useState } from "react";
+import { CiShoppingBasket } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
+import { FaChartLine } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { GiConverseShoe } from "react-icons/gi";
+import { GoHome } from "react-icons/go";
+import { GrContact } from "react-icons/gr";
 import { IoCart } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
 import { Context } from "../../Hooks & Functions/AauthContext";
@@ -9,6 +15,9 @@ const Navbar = () => {
     const { user, logout, myCart, userRole } = useContext(Context)
     const [showDropDown, setShowDropDown] = useState(false)
     const defaultUser = "https://i.pinimg.com/1200x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
+
+
+    const [showDrawer, setShowDrawer] = useState(false)
 
     const handleLogout = () => {
         logout()
@@ -79,7 +88,49 @@ const Navbar = () => {
                 }
 
             </nav>
-        </div>
+
+            <div className="drawerNav">
+                <GiHamburgerMenu onClick={() => setShowDrawer(true)} className="hamburger" />
+                {
+                    showDrawer ?
+                        <div className="drawerContainer" onClick={() => setShowDrawer(false)}>
+                            <div className="logo">
+                                <img src="https://i.ibb.co/0m6QGR0/BWlogo.png" alt="" />
+                            </div>
+                            <div className="drawerLinks">
+                                <Link to={"/"}><GoHome />Home</Link>
+                                <Link to={"/allShoes"}><GiConverseShoe />All Shoes</Link>
+                                <Link to={"/contact"}><GrContact />Contact</Link>
+                                {
+                                    user ?
+                                        <>
+
+                                            <Link to={"/myCart"}><FaUser /> My cart</Link>
+                                            <Link to={"/myCart"}><IoCart /> My cart</Link>
+                                            <Link to={"/myOrders"}><CiShoppingBasket />Order History</Link>
+
+
+                                            {
+                                                userRole === "admin" ?
+                                                    <Link to={"/dashboard/statistics"}><FaChartLine />Dashboard</Link>
+                                                    :
+                                                    ""
+                                            }
+
+                                        </>
+
+                                        : ""
+                                }
+
+                            </div>
+
+
+                        </div>
+                        :
+                        ""
+                }
+            </div>
+        </div >
     );
 };
 

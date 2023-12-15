@@ -48,7 +48,9 @@ const AllShoes = () => {
         // window.scroll(0, 0)
     }
 
-    
+
+    console.log(data);
+
     return (
         <div className="allShoeWrapper">
 

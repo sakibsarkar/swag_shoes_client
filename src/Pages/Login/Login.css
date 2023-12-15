@@ -41,7 +41,7 @@
 }
 
 
-.loginForm .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+.loginForm .MuiFormControl-root {
     width: 100% !important;
 }
 

@@ -3,7 +3,6 @@ import PageBanner from "../../Shared/PageBanner/PageBanner";
 import SocialAuth from "../../Shared/SocialAuth/SocialAuth";
 import Swal from "sweetalert2";
 import UseAxios from "../../Hooks & Functions/Axios/UseAxios";
-import toast, { ToastBar } from "react-hot-toast";
 import { Button, TextField } from "@mui/material";
 import { useContext, useState } from "react";
 import { ImSpinner9 } from "react-icons/im";
