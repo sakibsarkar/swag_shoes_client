@@ -18,7 +18,7 @@ const CancelRequest = () => {
         }
     })
     return (
-        <div>
+        <div className="requestContainer">
 
             {
                 data?.map(request => <CancelRequestCard key={request._id} request={request} refetch={refetch} />)

@@ -27,14 +27,21 @@
 
 
 
-@media screen and (max-width: 400px) {}
+@media screen and (max-width: 665px) {
+    .ordersCardCon {
+        grid-template-columns: repeat(1, 95vw);
+    }
 
-@media screen and (min-width: 401px) and (max-width: 720px) {}
+}
 
-@media screen and (min-width: 721px) and (max-width: 1280px) {}
+@media screen and (min-width: 665px) and (max-width: 1615px) {
 
-@media screen and (min-width: 1281px) and (max-width: 1440px) {}
 
-@media screen and (min-width: 1441px) and (max-width: 1920px) {}
+    .ordersCardCon {
+        grid-template-columns: repeat(1, 655px);
+    }
+
+}
+
 
 @media screen and (min-width: 1921px) {}
