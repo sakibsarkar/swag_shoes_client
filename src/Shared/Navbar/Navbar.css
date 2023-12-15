@@ -211,7 +211,7 @@
     .drawerContainer {
         position: fixed;
         height: 100vh;
-        width: 250px;
+        width: 100vw;
         right: 0;
         top: 0;
         background-color: rgb(25, 25, 25);

@@ -12,7 +12,7 @@
 
 .orderHistoryContainer {
     display: grid;
-    grid-template-columns: repeat(1, 1000);
+    grid-template-columns: repeat(1, 1000px);
     gap: 10px;
 }
 
@@ -42,4 +42,30 @@
     justify-content: center;
     align-items: center;
     padding: 0 7px;
+}
+
+
+
+
+
+@media screen and (max-width: 550px) {
+    .orderHistoryContainer {
+        grid-template-columns: repeat(1, 95vw);
+        margin: auto;
+    }
+
+    .historyWrapper {
+        width: 95vw;
+    }
+}
+
+@media screen and (min-width: 550px) and (max-width: 1011px) {
+    .orderHistoryContainer {
+        grid-template-columns: repeat(1, 95vw);
+        margin: auto;
+    }
+
+    .historyWrapper {
+        width: 95vw;
+    }
 }

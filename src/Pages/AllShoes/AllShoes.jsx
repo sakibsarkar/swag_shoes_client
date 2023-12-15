@@ -49,7 +49,7 @@ const AllShoes = () => {
     }
 
 
-    console.log(data);
+ 
 
     return (
         <div className="allShoeWrapper">

@@ -24,6 +24,18 @@ const Navbar = () => {
     }
 
 
+    const handleShowDrawer = () => {
+        if (showDrawer) {
+            document.body.classList.remove("noScroll")
+            setShowDrawer(!showDrawer)
+        }
+        else {
+            document.body.classList.add("noScroll")
+            setShowDrawer(!showDrawer)
+
+        }
+    }
+
 
 
 
@@ -90,10 +102,10 @@ const Navbar = () => {
             </nav>
 
             <div className="drawerNav">
-                <GiHamburgerMenu onClick={() => setShowDrawer(true)} className="hamburger" />
+                <GiHamburgerMenu onClick={handleShowDrawer} className="hamburger" />
                 {
                     showDrawer ?
-                        <div className="drawerContainer" onClick={() => setShowDrawer(false)}>
+                        <div className="drawerContainer" onClick={handleShowDrawer}>
                             <div className="logo">
                                 <img src="https://i.ibb.co/0m6QGR0/BWlogo.png" alt="" />
                             </div>
