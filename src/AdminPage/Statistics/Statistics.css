@@ -102,3 +102,79 @@
     box-shadow: 0 2px 16.8px 3.2px #00264214;
 
 }
+
+
+
+
+
+@media screen and (max-width: 1090px) {
+
+
+    .statisticContainer {
+        padding: 100px 0 0 0;
+    }
+
+    .totalPending,
+    .totalOrderCard,
+    .totalShipped {
+        flex-direction: column;
+        width: 33%;
+    }
+
+    .stateCards>div {
+        width: calc(100% - 10px);
+    }
+
+    .stateCards {
+        flex-wrap: wrap;
+        box-shadow: none;
+    }
+
+    .pieChart {
+        width: calc(100% - 10px) !important;
+    }
+
+
+    .statisticChart {
+        flex-direction: column;
+    }
+
+
+    .everyOrderChart {
+        width: calc(100% - 50px);
+    }
+
+    .totalOrderChart {
+        width: calc(100% - 50px);
+    }
+
+
+
+}
+
+@media screen and (min-width: 1090px) and (max-width: 1625px) {
+    .statisticContainer {
+        padding: 100px 0 0 0;
+    }
+
+    .totalPending,
+    .totalOrderCard,
+    .totalShipped {
+        flex-direction: column;
+        width: 33%;
+    }
+
+    .stateCards>div {
+        width: calc(100% - 10px);
+    }
+
+    .stateCards {
+        flex-wrap: wrap;
+        box-shadow: none;
+    }
+
+    .pieChart {
+        width: calc(100% - 10px) !important;
+    }
+
+}

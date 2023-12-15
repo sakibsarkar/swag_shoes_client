@@ -31,3 +31,26 @@
     color: white;
     transition: 0.5s;
 }
+
+.dashBoardDrawer {
+    display: none;
+    height: 100vh;
+    background: rgb(226, 226, 226);
+    width: 300px;
+    position: fixed;
+    left: 0;
+    z-index: 9999;
+    top: 0;
+}
+
+
+
+@media screen and (max-width: 1080px) {
+
+
+    .dashBarCon {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1921px) {}
