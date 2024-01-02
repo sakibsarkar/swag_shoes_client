@@ -19,13 +19,17 @@ const MyCart = () => {
 
 
     return (
-        <div className="cartItemContainer">
 
-            {
-                data?.map(cart => <CartItemCard refetch={refetch} key={cart._id} cart={cart}></CartItemCard>)
-            }
+        <div className="cartItemWrapper">
+            <div className="cartItemContainer">
 
+                {
+                    data?.map(cart => <CartItemCard refetch={refetch} key={cart._id} cart={cart}></CartItemCard>)
+                }
+
+            </div>
         </div>
+
     );
 };
 
