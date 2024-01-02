@@ -10,7 +10,7 @@ import { GiConverseShoe } from "react-icons/gi";
 import { GoHome } from "react-icons/go";
 import { GrContact } from "react-icons/gr";
 import { IoCart } from "react-icons/io5";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Context } from "../../Hooks & Functions/AauthContext";
 
 const Navbar = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
     const [showDropDown, setShowDropDown] = useState(false)
     const defaultUser = "https://i.pinimg.com/1200x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
 
-
+    const navigate = useNavigate()
     // array object of shoe names
     const [shoeNames, setShoeNames] = useState([])
 
@@ -64,10 +64,11 @@ const Navbar = () => {
     const inputRef = useRef(null)
 
     const searchClick = () => {
-        setSearch(true)
+        setSearch(!search)
         inputRef.current.focus()
     }
 
+    // -------- currently not using anywhere----
     const handleInputBlur = () => {
         setSearch(false)
         inputRef.current.value = ""
@@ -88,15 +89,19 @@ const Navbar = () => {
         if (value === "") {
             return setSuggestion([])
         }
+
+        if (e.keyCode == 13) {
+            inputRef.current.blur()
+            setSuggestion([])
+            return navigate(`/products?search=${value}`)
+        }
+
+
         const suggestions = nameArr.filter(name => {
 
             return name.includes(value)
         })
         setSuggestion(suggestions)
-
-        // const searchData = await axios.get(`/search/shoes?searchValue=${value}`)
-        // console.log(searchData);
-
     }
 
 
@@ -126,7 +131,7 @@ const Navbar = () => {
 
                             <div className={search ? "search searching" : "search"} >
 
-                                <input type="text" style={search ? { width: "100%", transition: "0.5s" } : {}} ref={inputRef} onChange={handleShowSearchData} />
+                                <input type="text" style={search ? { width: "100%", transition: "0.5s" } : {}} ref={inputRef} onKeyUp={handleShowSearchData} />
 
                                 <FiSearch onClick={searchClick} />
 
@@ -134,7 +139,7 @@ const Navbar = () => {
                                     {
                                         suggestion?.map((suggestion, index) => <Link
                                             key={index}
-                                            to={`/product?search=${suggestion}`}
+                                            to={`/products?search=${suggestion}`}
 
                                         >
                                             {suggestion}

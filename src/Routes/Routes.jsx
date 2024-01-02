@@ -10,6 +10,7 @@ import MainLayout from "../Layout/MainLayout";
 import MyCart from "../Cards & Components/MyCart/MyCart";
 import Myorders from "../Pages/Myorders/Myorders";
 import PaymentPage from "../Cards & Components/PaymentPage/PaymentPage";
+import SearchProduct from "../Pages/SearchProduct/SearchProduct";
 import ShoeDetail from "../Cards & Components/ShoeDetail/ShoeDetail";
 import Signup from "../Pages/Signup/Signup";
 import Statistics from "../AdminPage/Statistics/Statistics";
@@ -45,6 +46,10 @@ export const route = createBrowserRouter([
             {
                 path: "/paymentPage",
                 element: <UserPrivateRoute><PaymentPage /></UserPrivateRoute>
+            },
+            {
+                path: "/products",
+                element: <SearchProduct />
             }
             ,
             {

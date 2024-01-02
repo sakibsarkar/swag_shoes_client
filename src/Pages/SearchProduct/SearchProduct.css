@@ -1,0 +1,25 @@
+.searchItemContainer {
+    padding: 120px 0 50px 0;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.searchProductWrapper {
+    width: 100%;
+    min-height: 80vh;
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+    grid-template-columns: repeat(3, 350px);
+}
+
+
+.searchItemContainer h1 {
+    width: 1090px;
+}
