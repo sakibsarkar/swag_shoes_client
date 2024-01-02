@@ -3,6 +3,7 @@ import AllOrders from "../AdminPage/AllOrders/AllOrders";
 import AllShoes from "../Pages/AllShoes/AllShoes";
 import CancelRequest from "../AdminPage/CancelRequest/CancelRequest";
 import DashboardLayout from "../Layout/DashboardLayout";
+import ErrorPage from "../ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
@@ -19,6 +20,7 @@ export const route = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",

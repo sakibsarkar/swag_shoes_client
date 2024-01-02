@@ -1,0 +1,27 @@
+.errorContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+}
+
+
+.gotTo {
+    background: #edc50b;
+    color: white;
+    padding: 7px 26px;
+    font-size: 23px;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
+
+@media screen and (max-width: 615px) {
+    .errorContainer img {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 1921px) {}

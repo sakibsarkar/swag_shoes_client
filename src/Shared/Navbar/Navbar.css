@@ -41,6 +41,72 @@
 }
 
 
+
+.search {
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    font-size: 20px;
+    transition: 1s;
+    width: fit-content;
+    position: relative;
+    border-radius: 50%;
+}
+
+.searching {
+    transition: 0.3s !important;
+    width: 300px !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    color: white !important;
+
+    border-bottom: 1px solid white !important;
+    border-radius: 0 !important;
+}
+
+.suggestions {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    background: rgb(255, 255, 255);
+    font-size: 15px;
+    top: 32px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    border: 1px solid black;
+
+
+}
+
+
+.suggestions a {
+    font-size: 20px;
+    padding: 5px 0;
+    width: 100%;
+    color: black;
+}
+
+.suggestions a:hover {
+    background-color: #ececec;
+}
+
+.search input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    width: 100%;
+    transition: 0.3;
+    color: rgb(255, 255, 255);
+    width: 0;
+}
+
+
 .createAccount {
     display: flex;
     justify-content: center;

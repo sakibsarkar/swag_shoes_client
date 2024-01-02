@@ -1,8 +1,10 @@
 import "./Navbar.css";
-import { useContext, useState } from "react";
+import UseAxios from "../../Hooks & Functions/Axios/UseAxios";
+import { useContext, useEffect, useRef, useState } from "react";
 import { CiShoppingBasket } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
 import { FaChartLine } from "react-icons/fa";
+import { FiSearch } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GiConverseShoe } from "react-icons/gi";
 import { GoHome } from "react-icons/go";
@@ -17,7 +19,19 @@ const Navbar = () => {
     const defaultUser = "https://i.pinimg.com/1200x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
 
 
+    // array object of shoe names
+    const [shoeNames, setShoeNames] = useState([])
+
+    // array shoenames mathed by search value (search suggestion)
+    const [suggestion, setSuggestion] = useState([])
+
+    const axios = UseAxios()
+
+
+
     const [showDrawer, setShowDrawer] = useState(false)
+
+    const [search, setSearch] = useState(false)
 
     const handleLogout = () => {
         logout()
@@ -37,6 +51,54 @@ const Navbar = () => {
     }
 
 
+    useEffect(() => {
+        axios.get("/shoe/names")
+            .then(({ data }) => setShoeNames(data))
+    }, [axios])
+
+
+
+
+
+
+    const inputRef = useRef(null)
+
+    const searchClick = () => {
+        setSearch(true)
+        inputRef.current.focus()
+    }
+
+    const handleInputBlur = () => {
+        setSearch(false)
+        inputRef.current.value = ""
+        setSuggestion([])
+    }
+
+
+    // making a array of shoes name from the array object of shoe names
+    let nameArr = []
+    for (let name of shoeNames) {
+        nameArr.push(name.name.toLowerCase())
+    }
+
+
+    const handleShowSearchData = (e) => {
+        const value = e.target.value
+
+        if (value === "") {
+            return setSuggestion([])
+        }
+        const suggestions = nameArr.filter(name => {
+
+            return name.includes(value)
+        })
+        setSuggestion(suggestions)
+
+        // const searchData = await axios.get(`/search/shoes?searchValue=${value}`)
+        // console.log(searchData);
+
+    }
+
 
 
 
@@ -47,17 +109,41 @@ const Navbar = () => {
                     <img src="https://i.ibb.co/0m6QGR0/BWlogo.png" alt="" />
                 </div>
 
+
                 <ul>
                     <li><NavLink to={"/"} className="navLinks">Home</NavLink></li>
                     <li><NavLink to={"/allShoes"} className="navLinks">All Shoes</NavLink></li>
-                    <li><NavLink to={"/all-shoes"} className="navLinks">All Shoes</NavLink></li>
+                    {/* <li><NavLink to={"/all-shoes"} className="navLinks">All Shoes</NavLink></li> */}
                     <li><NavLink to={"/contact"} className="navLinks">Contact</NavLink></li>
                 </ul>
+
+
 
 
                 {
                     user ?
                         <div className="userItems">
+
+                            <div className={search ? "search searching" : "search"} >
+
+                                <input type="text" style={search ? { width: "100%", transition: "0.5s" } : {}} ref={inputRef} onChange={handleShowSearchData} />
+
+                                <FiSearch onClick={searchClick} />
+
+                                <div className="suggestions">
+                                    {
+                                        suggestion?.map((suggestion, index) => <Link
+                                            key={index}
+                                            to={`/product?search=${suggestion}`}
+
+                                        >
+                                            {suggestion}
+                                        </Link>)
+                                    }
+                                </div>
+                            </div>
+
+
                             <div className="userImg" onClick={() => setShowDropDown(!showDropDown)}>
                                 <img src={user?.photoURL ? user.photoURL : defaultUser} alt="" />
                             </div>
@@ -65,6 +151,7 @@ const Navbar = () => {
                                 <IoCart />
                                 <p>{myCart.totalItem}</p>
                             </Link>
+
 
                             {
                                 showDropDown ?
@@ -116,7 +203,6 @@ const Navbar = () => {
                                 {
                                     user ?
                                         <>
-
                                             <NavLink to={"/myCart"}><FaUser /> My cart</NavLink>
                                             <NavLink to={"/myCart"}><IoCart /> My cart</NavLink>
                                             <NavLink to={"/myOrders"}><CiShoppingBasket />Order History</NavLink>

@@ -1,0 +1,139 @@
+footer {
+    width: 100%;
+    height: 250px;
+    background-color: #101010;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 50px 0 0 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.socialLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.socialLinks .socialLink {
+    background: #333333;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.socialLinks .socialLink:hover {
+    background: #dddddd;
+}
+
+.socialLink a {
+    font-size: 29px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.footerLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+
+.footerLink {
+    font-size: 20px;
+    color: white;
+}
+
+.footerLink:hover {
+    text-decoration: underline;
+}
+
+.footerForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerForm input {
+    background: transparent;
+    border: 1px solid white;
+    height: 22px;
+    outline: none;
+    padding: 0 5px;
+    color: white;
+    width: 273px;
+}
+
+.footerForm button {
+    padding: 5px 17px;
+    border-radius: 0;
+    border: none;
+    margin: 0 0 0 4px;
+    cursor: pointer;
+}
+
+
+.copyRight {
+    width: 100%;
+    text-align: center;
+    background: #2a2a2a;
+    color: white;
+    padding: 15px 0;
+}
+
+
+@media screen and (max-width: 480px) {
+    .socialLinks {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .footerLinks {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .socialLinks .socialLink {
+        width: 20px;
+        height: 20px;
+    }
+
+    .socialLink a {
+        font-size: 20px;
+    }
+
+    .footerLink {
+        font-size: 17px;
+    }
+
+    .footerForm input {
+        width: 90%;
+    }
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 600px) {
+    .socialLinks {
+        gap: 30px;
+    }
+
+    .footerLinks {
+        gap: 30px;
+    }
+}
+
+@media screen and (min-width: 1921px) {}
