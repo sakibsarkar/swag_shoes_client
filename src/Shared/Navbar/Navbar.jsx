@@ -65,6 +65,8 @@ const Navbar = () => {
 
     const searchClick = () => {
         setSearch(!search)
+        setSuggestion([])
+        inputRef.current.value = ""
         inputRef.current.focus()
     }
 
@@ -86,6 +88,7 @@ const Navbar = () => {
     const handleShowSearchData = (e) => {
         const value = e.target.value
 
+
         if (value === "") {
             return setSuggestion([])
         }
@@ -105,6 +108,12 @@ const Navbar = () => {
     }
 
 
+    const handleSuggestionClicked = (suggestionValue) => {
+        inputRef.current.value = suggestionValue
+        inputRef.current.blur();
+        setSuggestion([])
+    }
+
 
 
     return (
@@ -115,7 +124,7 @@ const Navbar = () => {
                 </div>
 
 
-                <ul>
+                <ul style={search ? { width: "0px", overflow: "hidden", transition: "0.5s" } : {}}>
                     <li><NavLink to={"/"} className="navLinks">Home</NavLink></li>
                     <li><NavLink to={"/allShoes"} className="navLinks">All Shoes</NavLink></li>
                     {/* <li><NavLink to={"/all-shoes"} className="navLinks">All Shoes</NavLink></li> */}
@@ -131,14 +140,15 @@ const Navbar = () => {
 
                             <div className={search ? "search searching" : "search"} >
 
-                                <input type="text" style={search ? { width: "100%", transition: "0.5s" } : {}} ref={inputRef} onKeyUp={handleShowSearchData} />
+                                <input type="text" style={search ? { width: "100%", transition: "10s" } : {}} ref={inputRef} onKeyUp={handleShowSearchData} />
 
-                                <FiSearch onClick={searchClick} />
+                                <FiSearch onClick={searchClick} style={{ cursor: "pointer" }} />
 
                                 <div className="suggestions">
                                     {
                                         suggestion?.map((suggestion, index) => <Link
                                             key={index}
+                                            onClick={() => handleSuggestionClicked(suggestion)}
                                             to={`/products?search=${suggestion}`}
 
                                         >
@@ -199,6 +209,7 @@ const Navbar = () => {
                                         suggestion?.map((suggestion, index) => <Link
                                             key={index}
                                             to={`/products?search=${suggestion}`}
+                                            onClick={() => handleSuggestionClicked(suggestion)}
 
                                         >
                                             {suggestion}

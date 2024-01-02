@@ -27,6 +27,7 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+    transition: 0.5s;
 }
 
 .navWrapper nav ul li .navLinks {
@@ -59,7 +60,7 @@
 
 .searching {
     transition: 0.3s !important;
-    width: 300px !important;
+    width: 400px !important;
     background-color: transparent !important;
     border: 0 !important;
     color: white !important;
@@ -79,17 +80,38 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    border: 1px solid black;
+    max-height: 310px;
+    overflow-y: auto;
 
 
 }
 
+.suggestions::-webkit-scrollbar {
+    width: 5px;
+    /* Set the width of the scrollbar */
+}
+
+.suggestions::-webkit-scrollbar-thumb {
+    background-color: #8c8c8c;
+    /* Set the color of the scrollbar thumb */
+    border-radius: 5px;
+    /* Set the border radius of the scrollbar thumb */
+}
+
+.suggestions::-webkit-scrollbar-track {
+    background-color: #bdbdbd;
+    /* Set the color of the scrollbar track */
+}
+
+
+
 
 .suggestions a {
     font-size: 20px;
-    padding: 5px 0;
-    width: 100%;
+    padding: 5px 0 5px 11px;
+    width: calc(100% - 11px);
     color: black;
+
 }
 
 .suggestions a:hover {
@@ -104,6 +126,7 @@
     transition: 0.3;
     color: rgb(255, 255, 255);
     width: 0;
+    font-size: 18px;
 }
 
 

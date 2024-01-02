@@ -6,6 +6,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "react-router-dom";
 
 const SearchProduct = () => {
+
+    window.scroll(0, 0)
     const location = useLocation()
     const query = new URLSearchParams(location.search)
     const queryValue = query.get('search')
