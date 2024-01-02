@@ -140,7 +140,7 @@ const Navbar = () => {
 
                             <div className={search ? "search searching" : "search"} >
 
-                                <input type="text" style={search ? { width: "100%", transition: "10s" } : {}} ref={inputRef} onKeyUp={handleShowSearchData} />
+                                <input type="text" style={search ? { width: "100%", transition: "0.5s" } : {}} ref={inputRef} onKeyUp={handleShowSearchData} />
 
                                 <FiSearch onClick={searchClick} style={{ cursor: "pointer" }} />
 
