@@ -107,6 +107,14 @@
 }
 
 
+.noUserContainer {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .createAccount {
     display: flex;
     justify-content: center;

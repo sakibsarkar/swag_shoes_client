@@ -184,11 +184,37 @@ const Navbar = () => {
 
                         </div>
                         :
-                        <Link to={"/login"} className="createAccount">
-                            <FaUser />
-                            <p>|</p>
-                            <p>Login</p>
-                        </Link >
+
+                        <div className="noUserContainer">
+
+
+                            <div className={search ? "search searching" : "search"} >
+
+                                <input type="text" style={search ? { width: "100%", transition: "0.5s" } : {}} ref={inputRef} onKeyUp={handleShowSearchData} />
+
+                                <FiSearch onClick={searchClick} />
+
+                                <div className="suggestions">
+                                    {
+                                        suggestion?.map((suggestion, index) => <Link
+                                            key={index}
+                                            to={`/products?search=${suggestion}`}
+
+                                        >
+                                            {suggestion}
+                                        </Link>)
+                                    }
+                                </div>
+                            </div>
+                            <p style={{ color: "white" }}>|</p>
+
+                            <Link to={"/login"} className="createAccount">
+                                <FaUser />
+                                <p>|</p>
+                                <p>Login</p>
+                            </Link >
+                        </div>
+
                 }
 
             </nav>
