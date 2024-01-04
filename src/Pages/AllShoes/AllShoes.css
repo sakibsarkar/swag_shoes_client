@@ -7,6 +7,11 @@
     gap: 20px;
 }
 
+.all_show_container {
+    width: 1090px;
+    overflow: hidden;
+}
+
 .all_shoe_card_container {
     display: grid;
     grid-template-columns: repeat(3, 350px);
@@ -16,12 +21,48 @@
     min-height: 300px;
 }
 
+
+.filter {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 0 15px 0;
+    align-items: center;
+    gap: 20px;
+    background: #f5f5f5;
+    padding: 9px 10px;
+}
+
 .filter select {
     font-size: 19px;
     width: 181px;
     height: 36px;
-    margin: 0 0 15px 0;
 }
+
+
+.filter button {
+    padding: 8px 10px;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid black;
+    color: black;
+    background-color: transparent;
+}
+
+.filter .couponActive {
+    border: 1px solid black !important;
+    color: rgb(255, 255, 255) !important;
+    background-color: black !important;
+}
+
+.filter .ratingFilter {
+    width: 150px;
+}
+
+
 
 
 @media screen and (max-width:730px) {
