@@ -33,7 +33,6 @@ const AllShoes = () => {
     // set CurrentPage
     const handleCurrentPage = (event, value) => {
         setCurrentPage(value - 1)
-        setCurrentPage(0)
 
         // window.scroll(0, 0)
     }
