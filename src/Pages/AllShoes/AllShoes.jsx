@@ -33,6 +33,7 @@ const AllShoes = () => {
     // set CurrentPage
     const handleCurrentPage = (event, value) => {
         setCurrentPage(value - 1)
+        setCurrentPage(0)
 
         // window.scroll(0, 0)
     }
@@ -40,6 +41,7 @@ const AllShoes = () => {
 
     // coupon item filter
     const handleFindCouponItem = () => {
+        setCurrentPage(0)
         if (isCoupon === "true") {
             return setIsCoupon("")
         }
@@ -55,12 +57,14 @@ const AllShoes = () => {
     const handleRatingFilter = (e) => {
         const value = e.target.value
         setRatingFilter(value)
+        setCurrentPage(0)
     }
 
 
     // price range filter
     const handlePriceRang = (e) => {
         setPriceRange(e.target.value)
+        setCurrentPage(0)
     }
 
 
