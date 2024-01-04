@@ -15,6 +15,10 @@ const AllShoes = () => {
     const [isCoupon, setIsCoupon] = useState("false")
     const [ratingFilter, setRatingFilter] = useState("all")
 
+
+    // rerender pagination to fix the pagination bug
+    const [rerender, setRerender] = useState(false)
+
     // user token
     const token = getItemFromLS("token")
     const axios = UseAxios()
@@ -29,7 +33,6 @@ const AllShoes = () => {
     })
 
 
-
     // set CurrentPage
     const handleCurrentPage = (event, value) => {
         setCurrentPage(value - 1)
@@ -41,6 +44,7 @@ const AllShoes = () => {
     // coupon item filter
     const handleFindCouponItem = () => {
         setCurrentPage(0)
+        setRerender(!rerender)
         if (isCoupon === "true") {
             return setIsCoupon("")
         }
@@ -57,6 +61,7 @@ const AllShoes = () => {
         const value = e.target.value
         setRatingFilter(value)
         setCurrentPage(0)
+        setRerender(!rerender)
     }
 
 
@@ -64,6 +69,7 @@ const AllShoes = () => {
     const handlePriceRang = (e) => {
         setPriceRange(e.target.value)
         setCurrentPage(0)
+        setRerender(!rerender)
     }
 
 
@@ -115,7 +121,7 @@ const AllShoes = () => {
             </div>
 
 
-            <Pagination onChange={handleCurrentPage} count={Math.ceil(totalData / 9)} variant="outlined" shape="rounded" />
+            <Pagination onChange={handleCurrentPage} key={rerender} count={Math.ceil(totalData / 9)} variant="outlined" shape="rounded" />
         </div>
     );
 };
