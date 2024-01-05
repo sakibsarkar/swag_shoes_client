@@ -161,30 +161,44 @@ const NavbarV2 = () => {
                         <button onClick={searchClick}><CiSearch /></button>
                     </div>
 
-                    <div className="user" onClick={() => setShowUserDropdown(!showUserDropdown)}>
-                        <div className="userDisplayPicture">
-                            <img src={user?.photoURL} alt="" />
-                        </div>
-                        <div className="userInfo">
-                            <p style={{ fontWeight: "800" }}>Hello,{firstName}</p>
-                            <p>see your orders</p>
-                        </div>
+                    {
+                        user ?
+                            <div className="user" onClick={() => setShowUserDropdown(!showUserDropdown)}>
+                                <div className="userDisplayPicture">
+                                    <img src={user?.photoURL} alt="" />
+                                </div>
+                                <div className="userInfo">
+                                    <p style={{ fontWeight: "800" }}>Hello,{firstName}</p>
+                                    <p>see your orders</p>
+                                </div>
 
 
-                        <div className="userDropdDown" style={showUserDropdown ? {} : { transition: "0.4s", width: "0px", height: "0px" }}>
+                                <div className="userDropdDown" style={showUserDropdown ? {} : { transition: "0.4s", width: "0px", height: "0px" }}>
 
-                            <Link><CiUser />Profile</Link>
-                            <Link to={"/myOrders"}><LiaOpencart />Order History</Link>
-                            {
-                                userRole === "admin" ?
-                                    <Link to={"/dashboard/statistics"}><FaChartLine />Dashboard</Link>
-                                    :
-                                    ""
-                            }
+                                    <Link><CiUser />Profile</Link>
+                                    <Link to={"/myOrders"}><LiaOpencart />Order History</Link>
+                                    {
+                                        userRole === "admin" ?
+                                            <Link to={"/dashboard/statistics"}><FaChartLine />Dashboard</Link>
+                                            :
+                                            ""
+                                    }
 
-                            <p onClick={handleLogout}><IoIosLogOut />Logout</p>
-                        </div>
-                    </div>
+                                    <p onClick={handleLogout}><IoIosLogOut />Logout</p>
+                                </div>
+                            </div>
+                            :
+
+                            <Link className="authBox" to={"/login"}>
+                                <CiUser />
+                                <div>
+                                    <h4>Login</h4>
+                                    <p>Account</p>
+                                </div>
+                            </Link>
+                    }
+
+
                 </div>
             </div>
 

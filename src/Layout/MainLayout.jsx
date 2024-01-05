@@ -1,5 +1,6 @@
 import Footer from "../Shared/Footer/Footer";
 import NavbarV2 from "../V2/NabarV2/NavbarV2";
+import { Toaster } from "react-hot-toast";
 import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
@@ -7,6 +8,7 @@ const MainLayout = () => {
         <>
             {/* <Navbar /> */}
 
+            <Toaster />
             <NavbarV2 />
             <Outlet />
             <Footer />
