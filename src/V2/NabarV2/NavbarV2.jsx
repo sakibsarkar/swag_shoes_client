@@ -17,6 +17,7 @@ const NavbarV2 = () => {
 
     const { user, logout, userRole, myCart } = useContext(Context)
     const [showUserDropdown, setShowUserDropdown] = useState(false)
+    // const [showDrawer, setShowDrawer] = useState(false)
 
     const userName = user ? user.displayName : ""
     const firstName = userName.split(" ")[0]
@@ -34,7 +35,6 @@ const NavbarV2 = () => {
 
 
 
-    const [showDrawer, setShowDrawer] = useState(false)
 
 
     const handleLogout = () => {
@@ -42,17 +42,17 @@ const NavbarV2 = () => {
     }
 
 
-    const handleShowDrawer = () => {
-        if (showDrawer) {
-            document.body.classList.remove("noScroll")
-            setShowDrawer(!showDrawer)
-        }
-        else {
-            document.body.classList.add("noScroll")
-            setShowDrawer(!showDrawer)
+    // const handleShowDrawer = () => {
+    //     if (showDrawer) {
+    //         document.body.classList.remove("noScroll")
+    //         setShowDrawer(!showDrawer)
+    //     }
+    //     else {
+    //         document.body.classList.add("noScroll")
+    //         setShowDrawer(!showDrawer)
 
-        }
-    }
+    //     }
+    // }
 
 
     useEffect(() => {
