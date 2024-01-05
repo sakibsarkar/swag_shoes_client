@@ -1,0 +1,235 @@
+.navbarV2 {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+
+}
+
+
+
+.navbarTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    width: 1300px;
+    padding: 12px 0;
+    background-color: rgb(255, 255, 255);
+
+}
+
+/* background-color: #e5e7eb; */
+
+.navbarTop p {
+    font-weight: 700;
+}
+
+.navbarTop .topLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbarTop .topLeft a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+
+.navbarMiddle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 12px 0;
+}
+
+.navbarMiddle .navbarMiddleContainer {
+    width: 1300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbarMiddle .navbarMiddleContainer .logo a {
+    font-size: 30px;
+    color: black;
+    font-weight: 800;
+}
+
+.navbarMiddle .navbarMiddleContainer .logo a span {
+    color: #0e77df;
+}
+
+.navbarMiddle .navbarMiddleContainer .searchbar {
+    border: 2px solid #d9dfe1;
+    width: 700px;
+    height: 40px;
+    padding: 0 0 0 5px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.navbarMiddle .navbarMiddleContainer .searchbar input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+.navbarMiddle .navbarMiddleContainer .searchbar button {
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    width: 80px;
+    color: #ffffff;
+    background-color: #0e77df;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navbarMiddle .navbarMiddleContainer .searchbar button:hover {
+    box-shadow: inset 90px 0 #07549c;
+    color: rgb(255, 255, 255);
+}
+
+
+
+
+
+.suggestions {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+    font-size: 15px;
+    top: 52px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    max-height: 310px;
+    z-index: 99;
+    overflow-y: auto;
+
+
+}
+
+.suggestions::-webkit-scrollbar {
+    width: 5px;
+    /* Set the width of the scrollbar */
+}
+
+.suggestions::-webkit-scrollbar-thumb {
+    background-color: #8c8c8c;
+    /* Set the color of the scrollbar thumb */
+    border-radius: 5px;
+    /* Set the border radius of the scrollbar thumb */
+}
+
+.suggestions::-webkit-scrollbar-track {
+    background-color: #bdbdbd;
+    /* Set the color of the scrollbar track */
+}
+
+
+
+
+.suggestions a {
+    font-size: 20px;
+    padding: 5px 0 5px 11px;
+    width: calc(100% - 11px);
+    color: black;
+
+}
+
+.suggestions a:hover {
+    background-color: #ececec;
+}
+
+
+
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 9px;
+    border-radius: 5px;
+    gap: 10px;
+}
+
+
+.user:hover {
+    background-color: #dae0f95e;
+}
+
+.user .userDisplayPicture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+
+}
+
+.user .userDisplayPicture img {
+    width: 100%;
+    border-radius: 50%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+
+.navbarBottom {
+    width: 1300px;
+    padding: 12px 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    align-items: center;
+
+}
+
+
+.navbarBottom .categories {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    width: 300px;
+    font-size: 20px;
+    padding: 10px 0 10px 10px;
+}
+
+.navLinks {
+    display: flex;
+    justify-content: flex-start;
+    gap: 22px;
+    align-items: center;
+    border-left: 1px solid black;
+    padding: 0 0 0 10px;
+}
+
+.navLinks a {
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+}
+
+.navLinks .active {
+    color: #0e77df;
+}
