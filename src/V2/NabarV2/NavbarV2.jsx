@@ -3,20 +3,23 @@ import UseAxios from "../../Hooks & Functions/Axios/UseAxios";
 import { useContext, useEffect, useRef, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
+import { CiUser } from "react-icons/ci";
+import { FaChartLine } from "react-icons/fa";
 import { IoIosPhonePortrait } from "react-icons/io";
 import { IoMdMenu } from "react-icons/io";
+import { IoIosLogOut } from "react-icons/io";
+import { IoCartOutline } from "react-icons/io5";
+import { LiaOpencart } from "react-icons/lia";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Context } from "../../Hooks & Functions/AauthContext";
 
 const NavbarV2 = () => {
 
-    const { user, logout } = useContext(Context)
-
+    const { user, logout, userRole, myCart } = useContext(Context)
+    const [showUserDropdown, setShowUserDropdown] = useState(false)
 
     const userName = user ? user.displayName : ""
     const firstName = userName.split(" ")[0]
-
-
 
 
 
@@ -158,13 +161,28 @@ const NavbarV2 = () => {
                         <button onClick={searchClick}><CiSearch /></button>
                     </div>
 
-                    <div className="user">
+                    <div className="user" onClick={() => setShowUserDropdown(!showUserDropdown)}>
                         <div className="userDisplayPicture">
                             <img src={user?.photoURL} alt="" />
                         </div>
                         <div className="userInfo">
                             <p style={{ fontWeight: "800" }}>Hello,{firstName}</p>
                             <p>see your orders</p>
+                        </div>
+
+
+                        <div className="userDropdDown" style={showUserDropdown ? {} : { transition: "0.4s", width: "0px", height: "0px" }}>
+
+                            <Link><CiUser />Profile</Link>
+                            <Link to={"/myOrders"}><LiaOpencart />Order History</Link>
+                            {
+                                userRole === "admin" ?
+                                    <Link to={"/dashboard/statistics"}><FaChartLine />Dashboard</Link>
+                                    :
+                                    ""
+                            }
+
+                            <p onClick={handleLogout}><IoIosLogOut />Logout</p>
                         </div>
                     </div>
                 </div>
@@ -184,6 +202,15 @@ const NavbarV2 = () => {
                     <NavLink to={"/"}>Home</NavLink>
                     <NavLink to={"/allShoes"}>All Shoes</NavLink>
                     <NavLink to={"/contact"}>Contact</NavLink>
+                </div>
+
+                <div className="cartBox">
+                    <Link className="cart" to={"/myCart"}>
+                        <IoCartOutline />
+                        <span>{myCart?.totalItem}</span>
+                    </Link>
+
+                    <Link className="shopMore" to={"/allShoes"}>Shop More</Link>
                 </div>
             </div>
 

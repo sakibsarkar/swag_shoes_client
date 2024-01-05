@@ -14,19 +14,17 @@
     display: none !important;
 }
 
-.newTitle {
-    border-left: 2px solid rgb(25, 14, 14);
-    padding: 0 0 0 5px;
-}
+
 
 .arrivalSlider {
     width: 1300px !important;
+    background-color: white;
     margin: auto;
     padding: 20px 0;
 }
 
 .productCard {
-
+    background-color: white;
     width: 500px;
     height: 400px;
     cursor: pointer;

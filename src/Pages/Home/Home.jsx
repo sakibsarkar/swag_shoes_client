@@ -1,6 +1,7 @@
 import "swiper/css";
 import "swiper/css/pagination";
 import "./Home.css";
+import Heading from "../../Cards & Components/Heading/Heading";
 import PromotionBanner from "../../Cards & Components/PromotionBanner/PromotionBanner";
 import Slider from "../../Cards & Components/Slider/Slider";
 import Swipper from "../../Cards & Components/Swipper/Swipper";
@@ -27,7 +28,6 @@ const Home = () => {
 
     const hanldeShowDetails = (id) => {
         setProductId(id)
-        console.log(productId);
     }
 
     const handleHideDetails = () => {
@@ -43,6 +43,7 @@ const Home = () => {
             <div className="sliderCon">
                 <Slider />
             </div>
+
             <Swipper />
 
             <div className="newArrivalWrapper">
@@ -84,10 +85,10 @@ const Home = () => {
             </div>
 
             <div className="newArrivalWrapper newArrivalWrapperV2">
-                <div className="newTitle">
-                    <h1>New Arrival</h1>
-                    <p>Just new</p>
-                </div>
+
+
+                <Heading heading={"New Arrival"} title={"Just new"} />
+
 
 
                 {/* swiper js swiper */}
