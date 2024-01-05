@@ -81,6 +81,10 @@
 @media screen and (max-width: 400px) {
     .swipperCardCon {
         flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .bro_wrapper {
         width: 90vw;
     }
 
@@ -107,6 +111,11 @@
 @media screen and (min-width: 400px) and (max-width: 1020px) {
     .swipperCardCon {
         flex-direction: column-reverse;
+        width: 100%;
+    }
+
+
+    .bro_wrapper {
         width: 90vw;
     }
 
@@ -134,6 +143,10 @@
     .swipperCardCon {
         flex-direction: column-reverse;
         width: 100%;
+    }
+
+    .bro_wrapper {
+        width: calc(100vw - 44px);
     }
 
     .swipperCard {

@@ -283,7 +283,6 @@
     display: flex;
     justify-content: flex-start;
     gap: 22px;
-    width: 360px;
     align-items: center;
     border-left: 1px solid black;
     padding: 0 0 0 10px;
@@ -334,3 +333,126 @@
     color: white;
     padding: 5px 9px;
 }
+
+
+
+@media screen and (max-width: 570px) {
+    .navbarTop {
+        width: 96%;
+    }
+
+    .navbarBottom {
+        width: 96%;
+    }
+
+    .navbarMiddle .navbarMiddleContainer {
+        width: 96%;
+    }
+
+    .navbarMiddle .navbarMiddleContainer .searchbar {
+        width: 80%;
+    }
+
+    .navbarBottom .categories {
+        display: none;
+    }
+
+    .navbarMiddle .navbarMiddleContainer .logo {
+        display: none;
+    }
+
+    .cartBox .shopMore {
+        display: none;
+    }
+
+    .userInfo {
+        display: none;
+    }
+
+    .cartBox .cart {
+        border: 0;
+    }
+
+}
+
+@media screen and (min-width: 570px) and (max-width: 721px) {
+    .navbarTop {
+        width: 96%;
+    }
+
+    .cartBox .cart {
+        border: 0;
+    }
+
+    .navbarBottom {
+        width: 96%;
+    }
+
+    .navbarMiddle .navbarMiddleContainer {
+        width: 96%;
+    }
+
+    .navbarMiddle .navbarMiddleContainer .searchbar {
+        width: 60%;
+    }
+
+    .navbarBottom .categories {
+        width: 240px;
+    }
+
+    .navbarMiddle .navbarMiddleContainer .logo {
+        display: none;
+    }
+
+    .cartBox .shopMore {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 721px) and (max-width:1024px) {
+    .navbarTop {
+        width: 96%;
+    }
+
+    .navbarBottom {
+        width: 96%;
+    }
+
+    .navbarMiddle .navbarMiddleContainer {
+        width: 96%;
+    }
+
+    .navbarMiddle .navbarMiddleContainer .searchbar {
+        width: 50%;
+    }
+
+    .navbarBottom .categories {
+        width: 240px;
+    }
+
+    .navbarMiddle .navbarMiddleContainer .logo a {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1350px) {
+
+    .navbarTop {
+        width: 1000px;
+    }
+
+    .navbarBottom {
+        width: 1000px;
+    }
+
+    .navbarMiddle .navbarMiddleContainer {
+        width: 1000px;
+    }
+
+    .navbarMiddle .navbarMiddleContainer .searchbar {
+        width: 560px;
+    }
+}
+
+
+@media screen and (min-width: 1921px) {}
