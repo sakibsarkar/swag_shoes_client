@@ -68,7 +68,7 @@ const NavbarV2 = () => {
     const inputRef = useRef(null)
 
     const searchClick = () => {
-        const value = inputRef.current.value
+        const value = inputRef.current.value.toLowerCase()
         inputRef.current.blur()
         setSuggestion([])
         return navigate(`/products?search=${value}`)
@@ -85,7 +85,7 @@ const NavbarV2 = () => {
 
 
     const handleShowSearchData = (e) => {
-        const value = e.target.value
+        const value = e.target.value.toLowerCase()
 
 
         if (value === "") {
