@@ -67,3 +67,49 @@
 
 
 
+@media screen and (max-width: 400px) {}
+
+@media screen and (min-width: 401px) and (max-width: 720px) {}
+
+@media screen and (min-width: 721px) and (max-width: 1280px) {}
+
+@media screen and (min-width: 181px) and (max-width: 735px) {
+    .searchProductWrapper {
+        grid-template-columns: repeat(1, 350px);
+
+    }
+
+    .searchFilterbox {
+        width: 350px;
+    }
+
+    .searchItemContainer h1 {
+        width: 350px;
+        font-size: 21px;
+    }
+
+    .searchFilterbox select {
+        width: 120px;
+    }
+
+    .searchFilterbox p {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 735px) and (max-width: 1120px) {
+    .searchProductWrapper {
+        grid-template-columns: repeat(2, 350px);
+
+    }
+
+    .searchFilterbox {
+        width: 720px;
+    }
+
+    .searchItemContainer h1 {
+        width: 720px;
+    }
+}
+
+@media screen and (min-width: 1921px) {}

@@ -47,7 +47,7 @@ const SearchProduct = () => {
 
 
             <div className="searchFilterbox">
-                Filter :
+                <p>  Filter :</p>
                 <select onChange={(e) => setOrder(e.target.value)} value={order}>
                     <option value="">Best Match</option>
                     <option value="dec">Price high to low</option>
