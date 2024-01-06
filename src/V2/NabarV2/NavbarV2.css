@@ -373,6 +373,12 @@
         border: 0;
     }
 
+    .user .userDropdDown {
+        width: 200px;
+        right: 0;
+        left: unset;
+    }
+
 }
 
 @media screen and (min-width: 570px) and (max-width: 721px) {

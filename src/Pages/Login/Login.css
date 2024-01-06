@@ -1,5 +1,5 @@
 .loginCon {
-    padding: 80px 0 0 0;
+    min-height: 100vh;
 }
 
 
@@ -75,3 +75,34 @@
     cursor: pointer;
     text-decoration: underline;
 }
+
+
+
+
+
+
+@media screen and (max-width: 455px) {
+    .loginImg {
+        display: none;
+    }
+
+    .loginFormBox {
+        width: calc(95vw - 42px);
+        padding: 21px;
+        border-radius: 9px;
+    }
+}
+
+@media screen and (min-width: 455px) and (max-width: 988px) {
+    .loginImg {
+        display: none;
+    }
+
+    .loginFormBox {
+        width: fit-content;
+        padding: 21px;
+        border-radius: 9px;
+    }
+}
+
+@media screen and (min-width: 1921px) {}
