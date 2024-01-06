@@ -22,7 +22,22 @@ const NavbarV2 = () => {
     const userName = user ? user.displayName : ""
     const firstName = userName.split(" ")[0]
 
+    // all categoryies 
+    const categories = [
+        "sneaker",
+        "boots",
+        "formal",
+        "hiking",
+        "clog"
+    ]
 
+    const [showCategories, setShowCategories] = useState(false)
+
+    // searchbar
+    const inputRef = useRef(null)
+
+    // searchbar focus 
+    const [isFocused, setIsFocused] = useState(false)
 
     const navigate = useNavigate()
     // array object of shoe names
@@ -65,7 +80,7 @@ const NavbarV2 = () => {
 
 
 
-    const inputRef = useRef(null)
+
 
     const searchClick = () => {
         const value = inputRef.current.value.toLowerCase()
@@ -144,8 +159,8 @@ const NavbarV2 = () => {
                             SWAG <span>SHOES</span>
                         </Link>
                     </div>
-                    <div className="searchbar">
-                        <input ref={inputRef} type="text" placeholder="Search your need" onKeyUp={handleShowSearchData} />
+                    <div className="searchbar" style={isFocused ? { border: "2px solid #0e77df" } : {}}>
+                        <input ref={inputRef} type="text" placeholder="Search your need" onKeyUp={handleShowSearchData} onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} />
                         <div className="suggestions">
                             {
                                 suggestion?.map((suggestion, index) => <Link
@@ -206,10 +221,13 @@ const NavbarV2 = () => {
             <div className="navbarBottom">
 
 
-                <div className="categories">
+                <div className="categories" onClick={() => setShowCategories(!showCategories)}>
                     <IoMdMenu />
+                    <p>Browse Categories</p>
 
-                    Browse Categories
+                    <div className="allCategories" style={showCategories ? { width: "100%", height: "210px" } : { width: "100%", height: "0px" }}>
+                        {categories?.map((category, index) => <Link key={index}>{category}</Link>)}
+                    </div>
                 </div>
 
                 <div className="navLinks" onClick={() => inputRef.current.value = ""}>
