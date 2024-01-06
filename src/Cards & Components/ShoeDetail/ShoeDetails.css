@@ -1,12 +1,14 @@
 .shoe_detail_container {
     width: 1300px;
     margin: auto;
-    padding: 180px 0;
+    min-height: 100vh;
+    padding: 80px 0;
     display: flex;
     justify-content: flex-start;
     gap: 50px;
     align-items: flex-start;
     background-color: white;
+
 }
 
 .bigShoeImg {

@@ -23,6 +23,8 @@ const ShoeDetail = () => {
 
     const { user, myCart, setMyCart, paymentObj, setPaymentObj } = useContext(Context)
 
+    const [loading, setLoading] = useState(false)
+
     const navigate = useNavigate()
 
 
@@ -37,11 +39,11 @@ const ShoeDetail = () => {
             return myShoe
         }
     })
-    const { _id, name, price, sizes, coupon, discountPercentage, category, newArrival, image } = data
+    const { _id, name, price, sizes, coupon, discountPercentage, category, newArrival, image, ratings } = data
 
 
     // ---todo : add ratings in every data on DB
-    const rating = (Math.random() * 5).toFixed(1)
+
 
 
 
@@ -104,7 +106,7 @@ const ShoeDetail = () => {
 
     // add to cart
     const handleAddtoCart = async () => {
-        if (!selectedSize || !totalPrice || !quantity) {
+        if (!selectedSize || !totalPrice || !quantity || loading) {
             return
         }
 
@@ -115,7 +117,7 @@ const ShoeDetail = () => {
             return
         }
 
-
+        setLoading(true)
 
         // cart data
         const cartObject = {
@@ -163,7 +165,7 @@ const ShoeDetail = () => {
                 text: "",
                 icon: "success"
             });
-
+            setLoading(false)
             return
         }
 
@@ -175,6 +177,8 @@ const ShoeDetail = () => {
             text: "",
             icon: "success"
         });
+        setLoading(false)
+
     }
 
 
@@ -230,7 +234,7 @@ const ShoeDetail = () => {
                             <div className="shoeIntro">
                                 <h2>{name}</h2>
                                 <p>${price}</p>
-                                <Rating readOnly={true} value={rating} name="half-rating-read" defaultValue={2.5} precision={0.5} />
+                                <Rating readOnly={true} value={ratings} name="half-rating-read" defaultValue={2.5} precision={0.5} />
                             </div>
 
                             <div className="product_varients">
