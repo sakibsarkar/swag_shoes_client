@@ -15,11 +15,13 @@ const Login = () => {
     const [loginLoading, setLoginLoading] = useState(false)
     const axios = UseAxios()
 
+    const { login, user, logout, setLOCATION } = useContext(Context)
 
     const navigate = useNavigate()
     const addrss = location?.state ? location.state : "/"
+    setLOCATION(addrss)
 
-    const { login, user, logout } = useContext(Context)
+
     const handleLogin = async (e) => {
         e.preventDefault()
 
@@ -44,7 +46,7 @@ const Login = () => {
             Swal.fire({
                 title: "Success fully Logged in",
                 text: "",
-                icon: "seccess"
+                icon: "success"
             });
             navigate(addrss)
         }

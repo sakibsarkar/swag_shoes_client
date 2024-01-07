@@ -10,7 +10,7 @@ import { Context } from "../../Hooks & Functions/AauthContext";
 import { addItemToLS } from "../../Hooks & Functions/locaStorage";
 
 const SocialAuth = ({ mt = 0 }) => {
-    const { googleAuth, githubAuth, logout, user } = useContext(Context)
+    const { googleAuth, githubAuth, logout, user, LOCATION } = useContext(Context)
 
     const axios = UseAxios()
 
@@ -25,7 +25,6 @@ const SocialAuth = ({ mt = 0 }) => {
     const today = `${month} ${date},${year}`
 
 
-    const address = "/"
     const navigate = useNavigate()
 
 
@@ -56,7 +55,7 @@ const SocialAuth = ({ mt = 0 }) => {
                 title: "Succes",
             });
 
-            navigate(address)
+            navigate(LOCATION)
             toast.dismiss(toastId)
         }
         catch {

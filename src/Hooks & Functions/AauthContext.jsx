@@ -15,6 +15,9 @@ const AuthContext = ({ children }) => {
 
     const [myCart, setMyCart] = useState({ cartData: [], totalItem: 0 })
 
+    // locatin state
+    const [LOCATION, setLOCATION] = useState(null)
+
 
     const [userRole, setUserRole] = useState("")
 
@@ -116,7 +119,9 @@ const AuthContext = ({ children }) => {
         setMyCart,
         paymentObj,
         setPaymentObj,
-        userRole
+        userRole,
+        LOCATION,
+        setLOCATION
 
 
     }

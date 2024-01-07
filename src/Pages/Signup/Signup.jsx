@@ -15,12 +15,11 @@ const Signup = () => {
 
     const [signupLoading, setSignupLoading] = useState(false)
 
-    const { signup, user, logout, waitForUser, setWaitForUser } = useContext(Context)
+    const { signup, user, logout, waitForUser, setWaitForUser, LOCATION } = useContext(Context)
 
 
     const navigate = useNavigate()
 
-    const address = "/"
 
 
 
@@ -117,7 +116,7 @@ const Signup = () => {
 
 
             // navigate 
-            navigate(address)
+            navigate(LOCATION)
 
 
         }
