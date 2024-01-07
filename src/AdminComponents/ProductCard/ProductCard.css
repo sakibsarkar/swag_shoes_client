@@ -85,3 +85,76 @@
     gap: 10px;
 
 }
+
+
+.productUpdateBox {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-color: #0f0f0f47;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}
+
+
+.productUpdateBox form {
+    width: 400px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    position: relative;
+
+}
+
+.productUpdateBox form>div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.productUpdateBox form>div>p {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.productUpdateBox form>div input {
+    width: 100%;
+    font-size: 17px;
+    padding: 4px 0 4px 4px;
+    outline: none;
+    border: 1.5px solid #000000;
+    border-radius: 3px;
+}
+
+.productUpdateBox form>div input:focus {
+    border: 1.5px solid #0080ff;
+}
+
+.productUpdateBox form button {
+    width: 100%;
+    border: none;
+    font-size: 18px;
+    color: white;
+    background: #0460bc;
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+.productUpdateBox form svg {
+    position: absolute;
+    top: 6px;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+}

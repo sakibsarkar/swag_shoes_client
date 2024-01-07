@@ -13,7 +13,7 @@ const Products = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const [totalData, setTotalData] = useState(18)
 
-    const { data = {} } = useQuery({
+    const { data = {}, refetch } = useQuery({
         queryKey: ["myProducts", currentPage],
         queryFn: async () => {
             const { data: productData } = await axios.get(`/all/shoes?token=${token}&&currentPage=${currentPage}&&limit=${18}`)
@@ -21,11 +21,11 @@ const Products = () => {
             return productData
         }
     })
+    
 
     const handleCurrentPage = (event, value) => {
         setCurrentPage(value - 1)
 
-        // window.scroll(0, 0)
     }
 
     return (
@@ -33,7 +33,7 @@ const Products = () => {
             <h1>All products</h1>
             <div className="products_container">
                 {
-                    data?.result?.map(product => <ProductCard key={product._id} product={product} />)
+                    data?.result?.map(product => <ProductCard refetch={refetch} key={product._id} product={product} />)
                 }
             </div>
 
