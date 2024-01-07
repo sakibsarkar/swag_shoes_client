@@ -10,6 +10,7 @@ import MainLayout from "../Layout/MainLayout";
 import MyCart from "../Cards & Components/MyCart/MyCart";
 import Myorders from "../Pages/Myorders/Myorders";
 import PaymentPage from "../Cards & Components/PaymentPage/PaymentPage";
+import Products from "../AdminPage/Products/Products";
 import SearchProduct from "../Pages/SearchProduct/SearchProduct";
 import ShoeDetail from "../Cards & Components/ShoeDetail/ShoeDetail";
 import Signup from "../Pages/Signup/Signup";
@@ -78,6 +79,10 @@ export const route = createBrowserRouter([
             {
                 path: "/dashboard/cancelRequest",
                 element: <AdminPrivateRoute><CancelRequest /></AdminPrivateRoute>
+            },
+            {
+                path: "/dashboard/products",
+                element: <AdminPrivateRoute ><Products /></AdminPrivateRoute>
             }
         ]
     }

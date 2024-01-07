@@ -1,0 +1,7 @@
+.products_container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, 450px);
+    gap: 20px;
+    justify-content: center;
+}

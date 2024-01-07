@@ -1,0 +1,82 @@
+.MyproductCard {
+    width: 450px;
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+
+    border: 1px solid #0080ff00;
+}
+
+
+.MyproductCard:hover {
+    border: 1px solid #0080ff;
+}
+
+.MyproductCard .product_image {
+    min-width: 250px;
+    min-height: 150px;
+    width: 250px;
+    height: 150px;
+}
+
+.MyproductCard .product_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+
+
+.MyproductCard .my_product_details span {
+    padding: 10px 0;
+    border-radius: 8px;
+    position: absolute;
+    transform: rotate(315deg);
+    background: #0080ff;
+    color: white;
+    left: -32px;
+    top: 7px;
+    width: 107px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.MyproductCard .product_action {
+    position: absolute;
+    right: 10px;
+    bottom: -50px;
+    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.MyproductCard:hover .product_action {
+    bottom: 10px;
+}
+
+.MyproductCard .product_action button {
+    cursor: pointer;
+    border: none;
+    background: red;
+    color: white;
+    padding: 4px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}

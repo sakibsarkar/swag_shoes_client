@@ -74,7 +74,7 @@ const AuthContext = ({ children }) => {
     useEffect(() => {
 
         if (token) {
-            axios.get(`https://swag-shoes-server.vercel.app/api/mycart?token=${token}`)
+            axios.get(`http://localhost:5000/api/mycart?token=${token}`)
                 .then(({ data }) => setMyCart({ cartData: data ? data : [], totalItem: data ? data.length : 0 }))
                 .catch(err => {
                     return
@@ -92,7 +92,7 @@ const AuthContext = ({ children }) => {
         onAuthStateChanged(auth, USER => {
             setUser(USER)
             if (USER) {
-                axios.get(`https://swag-shoes-server.vercel.app/api/user/role?token=${token}`)
+                axios.get(`http://localhost:5000/api/user/role?token=${token}`)
                     .then(({ data }) => {
                         setUserRole(data?.role)
                             | setLoading(false)

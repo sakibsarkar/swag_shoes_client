@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Context } from "../AauthContext";
 
 export const instance = axios.create({
-    baseURL: "https://swag-shoes-server.vercel.app/api",
+    baseURL: "http://localhost:5000/api",
     withCredentials: true
 })
 
