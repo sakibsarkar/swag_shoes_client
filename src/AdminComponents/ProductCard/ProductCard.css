@@ -9,6 +9,7 @@
     position: relative;
     overflow: hidden;
     border-radius: 10px;
+    height: 150px;
 
     border: 1px solid #0080ff00;
 }
@@ -16,6 +17,10 @@
 
 .MyproductCard:hover {
     border: 1px solid #0080ff;
+}
+
+.MyproductCard .my_product_details {
+    padding: 0 0 0 10px;
 }
 
 .MyproductCard .product_image {

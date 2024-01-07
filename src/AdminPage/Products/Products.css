@@ -1,7 +1,17 @@
+.productWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+}
+
 .products_container {
     min-height: 100vh;
     display: grid;
     grid-template-columns: repeat(3, 450px);
+    grid-auto-rows: 150px;
     gap: 20px;
     justify-content: center;
 }
