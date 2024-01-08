@@ -45,7 +45,8 @@ const DashboardLayout = () => {
                         <div className="dashBoardLinks">
                             <NavLink to={"/dashboard/statistics"}><GrLineChart />Statistics</NavLink>
                             <NavLink to={"/dashboard/allOrders"}><FaBox /> All Orders</NavLink>
-                            <NavLink to={"/dashboard/pendingOrders"}><MdOutlinePendingActions />Pending Orders</NavLink>
+                            <NavLink to={"/dashboard/products"}><MdOutlinePendingActions />Products</NavLink>
+
                             <NavLink to={"/dashboard/cancelRequest"}><MdOutlineFreeCancellation />Cancel Request</NavLink>
                         </div>
                     </div>

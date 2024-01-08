@@ -158,3 +158,16 @@
     font-size: 30px;
     cursor: pointer;
 }
+
+
+
+@media screen and (min-width: 12px) and (max-width: 1233px) {
+    .MyproductCard {
+        width: 100%;
+    }
+}
+@media screen and (min-width: 1233px) and (max-width: 1695px) {
+    .MyproductCard {
+        width: 100%;
+    }
+}
