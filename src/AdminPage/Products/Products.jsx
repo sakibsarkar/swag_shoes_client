@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { AiFillFileAdd } from "react-icons/ai";
 import { BsPlusLg } from "react-icons/bs";
+import { RxCross2 } from "react-icons/rx";
 import { getItemFromLS } from "../../Hooks & Functions/locaStorage";
 import { uploadPhoto } from "../../Hooks & Functions/uploadPhoto";
 
@@ -107,6 +108,8 @@ const Products = () => {
             title: "Success"
         })
 
+        form.reset()
+        setshowAddProductForm(form)
         refetch()
 
 
@@ -181,7 +184,8 @@ const Products = () => {
                                 <p>Sizes</p>
                                 <input type="text" placeholder="example : 6,9,8,11,12" name="sizes" required />
                             </div>
-                            <button>submit</button>
+                            <button>Submit</button>
+                            <RxCross2 onClick={() => setshowAddProductForm(false)} />
                         </form>
                     </div> : ""
             }
