@@ -15,3 +15,124 @@
     gap: 20px;
     justify-content: center;
 }
+
+
+
+.addProduct {
+    position: fixed;
+    bottom: 77px;
+    right: 109px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+
+.addProduct button {
+    border: none;
+    background: #0080ff;
+    color: white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 27px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.addProduct button:hover {
+    background-color: #0665c4;
+}
+
+
+.speedAction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    position: absolute;
+    top: -61px;
+    right: 0;
+    min-width: 173px;
+    overflow: hidden;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+
+
+.speedAction p {
+    color: #0080ff;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.speedActionButton {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0080ff;
+    transition: 0.3s;
+}
+
+.speedActionButton:hover {
+    background-color: #074686;
+}
+
+
+
+
+
+
+
+.add_product_form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8d8d8d7a;
+}
+
+
+.add_product_form form {
+    width: 400px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+    padding: 20px;
+
+}
+
+.add_product_form form>div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.add_product_form form>div>input {
+    width: calc(100% - 4px);
+    outline: none;
+    height: 25px;
+
+}
