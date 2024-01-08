@@ -105,6 +105,33 @@ const ProductCard = ({ product = {}, refetch }) => {
     }
 
 
+    // delete product
+
+    const handleDelete = async () => {
+        Swal.fire({
+            title: "Do you want to delete the product",
+            showDenyButton: true,
+            confirmButtonText: "Yes",
+            denyButtonText: `No`,
+            icon: "question"
+        }).then(async (result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+
+                const { data: deleteData } = await axios.delete(`/delete/product?token=${token}&&id=${_id}`)
+                Swal.fire({
+                    icon: "success",
+                    title: "Successful"
+                })
+            }
+
+            else if (result.isDenied) {
+                return
+            }
+        });
+    }
+
+
 
     return (
         <>
@@ -122,7 +149,7 @@ const ProductCard = ({ product = {}, refetch }) => {
 
                 <div className="product_action">
                     <button style={{ background: "#06ad09" }} onClick={handleShowUpdateForm}><LuPenLine />Update</button>
-                    <button style={{ background: "#f21b1b" }}><FaRegTrashAlt />Delete</button>
+                    <button style={{ background: "#f21b1b" }} onClick={handleDelete}><FaRegTrashAlt />Delete</button>
                 </div>
             </div>
 
