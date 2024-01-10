@@ -2,6 +2,7 @@ import AdminPrivateRoute from "../PrivateRoutes/AdminPrivateRoute";
 import AllOrders from "../AdminPage/AllOrders/AllOrders";
 import AllShoes from "../Pages/AllShoes/AllShoes";
 import CancelRequest from "../AdminPage/CancelRequest/CancelRequest";
+import Contact from "../Pages/Contact/Contact";
 import DashboardLayout from "../Layout/DashboardLayout";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
@@ -31,6 +32,9 @@ export const route = createBrowserRouter([
             {
                 path: "/allShoes",
                 element: <AllShoes />
+            }, {
+                path: "/contact",
+                element: <Contact />
             },
             {
                 path: "/shoeDetail/:id",

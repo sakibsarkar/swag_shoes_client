@@ -1,0 +1,70 @@
+.contactContainer {
+    min-height: 100vh;
+    padding: 50px 0 0 0;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contactContainer form {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 31px 16px;
+    border-radius: 13px;
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+    background-color: white;
+
+}
+
+.contactContainer form div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.contactContainer form div p {
+    font-size: 24px;
+    color: #0e77df;
+    font-weight: 500;
+}
+
+.contactContainer form div input {
+    width: calc(100% - 7px);
+    height: 30px;
+    font-size: 18px;
+    padding: 0 0 0 5px;
+    border: 1px solid black;
+}
+
+.contactContainer form div textarea {
+    font-size: 18px;
+    width: calc(100% - 7px);
+    min-height: 200px;
+    padding: 5px 0 0 5px;
+    resize: vertical;
+    border: 1px solid black;
+}
+
+
+.contactContainer form button {
+    width: 100%;
+    border: none;
+    padding: 10px 0;
+    background-color: #0e77df;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
