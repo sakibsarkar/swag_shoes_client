@@ -14,6 +14,7 @@ import { Context } from "../../Hooks & Functions/AauthContext";
 import { getItemFromLS } from "../../Hooks & Functions/locaStorage";
 
 const ShoeDetail = () => {
+    window.scroll(0, 0)
     const { id } = useParams()
     const token = getItemFromLS("token")
     const axios = UseAxios()
