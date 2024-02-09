@@ -10,6 +10,7 @@
 .all_show_container {
     width: 1090px;
     overflow: hidden;
+    padding: 20px;
 }
 
 .all_shoe_card_container {

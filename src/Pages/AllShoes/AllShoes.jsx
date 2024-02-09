@@ -1,12 +1,14 @@
 import "./AllShoes.css";
 import LoadingAnimation from "../../Cards & Components/LoadingAnimation/LoadingAnimation";
 import PageBanner from "../../Shared/PageBanner/PageBanner";
-import ShoeCard from "../../Cards & Components/ShoeCard/ShoeCard";
+import ShoeCardV2 from "../../V2/ShoeCardV2/ShoeCardV2";
 import UseAxios from "../../Hooks & Functions/Axios/UseAxios";
 import { Pagination, Slider } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { getItemFromLS } from "../../Hooks & Functions/locaStorage";
+
+// import ShoeCard from "../../Cards & Components/ShoeCard/ShoeCard";
 
 const AllShoes = () => {
     const [priceRange, setPriceRange] = useState([0, 500])
@@ -114,7 +116,7 @@ const AllShoes = () => {
                         :
                         <div className="all_shoe_card_container">
                             {
-                                data?.result?.map(shoe => <ShoeCard key={shoe._id} shoeData={shoe} />)
+                                data?.result?.map(shoe => <ShoeCardV2 key={shoe._id} shoeData={shoe} />)
                             }
                         </div>
                 }
