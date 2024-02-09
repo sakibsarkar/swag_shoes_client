@@ -1,6 +1,7 @@
 import "./ShoeCardV2.css";
 import { Rating } from "@mui/material";
 import { GiShoppingBag } from "react-icons/gi";
+import { IoCart } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const ShoeCardV2 = ({ shoeData }) => {
@@ -21,8 +22,8 @@ const ShoeCardV2 = ({ shoeData }) => {
                 </div>
             </div>
             <div className="product_btn">
-                <Link><GiShoppingBag />View Details</Link>
-                <Link><GiShoppingBag />Buy now</Link>
+                <Link to={`/shoeDetail/${_id}`}><IoCart />View Details</Link>
+                <Link to={`/shoeDetail/${_id}`}><GiShoppingBag />Buy now</Link>
             </div>
 
         </div>

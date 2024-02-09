@@ -1,11 +1,13 @@
 import "./SearchProduct.css";
 import LoadingAnimation from "../../Cards & Components/LoadingAnimation/LoadingAnimation";
-import ShoeCard from "../../Cards & Components/ShoeCard/ShoeCard";
+import ShoeCardV2 from "../../V2/ShoeCardV2/ShoeCardV2";
 import UseAxios from "../../Hooks & Functions/Axios/UseAxios";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { IoTicketOutline } from "react-icons/io5";
 import { useLocation } from "react-router-dom";
+
+// import ShoeCard from "../../Cards & Components/ShoeCard/ShoeCard";
 
 const SearchProduct = () => {
 
@@ -63,7 +65,7 @@ const SearchProduct = () => {
                     :
                     <div className="searchProductWrapper">
                         {
-                            data?.map(shoe => <ShoeCard shoeData={shoe} key={shoe._id} />)
+                            data?.map(shoe => <ShoeCardV2 shoeData={shoe} key={shoe._id} />)
                         }
                     </div>
             }
